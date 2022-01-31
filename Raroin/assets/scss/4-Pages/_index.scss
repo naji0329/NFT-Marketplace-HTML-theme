@@ -1,0 +1,361 @@
+.styles_tab {
+    display: flex;
+    justify-content: center;
+    .item {
+        padding: 10px 20px;
+        border-radius: 50px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        opacity: 0.3;
+
+        @include before {
+            height: 106%;
+            width: 102%;
+            background: $color_grad;
+            border-radius: 50px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+        }
+        &:hover {
+            @include before {
+                opacity: 0;
+            }
+        }
+        p {
+            margin-left: 10px;
+            color: $color_black;
+        }
+        &.is_active {
+            opacity: 1;
+            @include before {
+                opacity: 1 !important;
+            }
+        }
+    }
+}
+.title_demos {
+    font-size: 50px;
+    @include tablet_vert_screen {
+        font-size: 35px;
+    }
+}
+.hr_in_index {
+    width: 100%;
+    height: 1px;
+    background: $color_grad;
+}
+.demos_wrap {
+    position: relative;
+    @include before {
+        background: url(../img/icons/demo_effect.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-y: 0;
+        height: 100rem;
+        width: 100%;
+        top: -20rem;
+        z-index: -1;
+        @include tablet_vert_screen {
+            display: none;
+        }
+    }
+}
+.demo_item {
+    padding: 20px;
+    border-radius: 20px;
+    background: $color_white;
+    box-shadow: $shadow_1;
+    position: relative;
+    transition: 0.3s $transition_function;
+    transition-delay: 0.1s;
+    transform: translateY(0);
+    display: block;
+    transform-origin: 50% -50px;
+    margin-bottom: 40px;
+    transform: perspective(300px) rotateX(-3deg);
+    &.is_sm {
+        .img_wrap {
+            width: 100%;
+            height: 10rem;
+            border-radius: 20px;
+            overflow: hidden;
+            @include tablet_vert_screen {
+                height: 16rem;
+            }
+        }
+    }
+    &.is_lg {
+        transform: none !important;
+
+        .img_wrap {
+            width: 100%;
+            height: 26.5rem;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+    }
+    @include before {
+        width: 90%;
+        height: 20px;
+        left: 50%;
+        top: -20px;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.514);
+        border-radius: 20px 20px 0 0;
+        z-index: -1;
+        transition: 0.3s $transition_function;
+    }
+    @include after {
+        width: 80%;
+        height: 40px;
+        left: 50%;
+        top: -40px;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.26);
+        border-radius: 20px 20px 0 0;
+        z-index: -2;
+        transition: 0.4s $transition_function;
+        transition-delay: 0.05s;
+    }
+
+    .img_wrap {
+        width: 100%;
+        height: 20rem;
+        border-radius: 20px;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s $transition_function;
+            object-position: top center;
+        }
+
+    }
+
+    &:hover {
+        transform: translateY(-0.5rem);
+        .img_wrap {
+            img {
+                transform: scale(1.05);
+            }
+        }
+
+        @include before {
+            top: 0;
+        }
+        @include after {
+            top: 0px;
+        }
+    }
+}
+.change_log {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .bage {
+        padding: 2px 10px;
+        background: $color_brand;
+        color: white;
+        border-radius: 5px;
+
+        font-size: 14px;
+        &.upd {
+            background: $color_green;
+        }
+        &.fix {
+            background: $color_red;
+        }
+    }
+}
+
+.overflow_log {
+    height: 30rem;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    @include before {
+        bottom: 0;
+        width: 100%;
+        height: 10rem;
+        background: linear-gradient(to bottom, transparent, #ecf1f918, #ecf1f9f6, #ecf1f9);
+        z-index: 1;
+        transition: all 0.2s ease-in-out;
+        opacity: 1;
+    }
+    .more_log {
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+    }
+    &.visible {
+        height: auto;
+        overflow: visible;
+
+        @include before {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .more_log {
+            bottom: -4rem;
+        }
+    }
+}
+.box_buy_wrapper {
+    @include before {
+        width: 90%;
+        height: 20px;
+        left: 50%;
+        top: -20px;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.514);
+        border-radius: 20px 20px 0 0;
+        z-index: -1;
+        transition: 0.3s $transition_function;
+    }
+    @include after {
+        width: 80%;
+        height: 40px;
+        left: 50%;
+        top: -40px;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.26);
+        border-radius: 20px 20px 0 0;
+        z-index: -2;
+        transition: 0.4s $transition_function;
+        transition-delay: 0.05s;
+    }
+}
+.box_buy_wrapper2 {
+    @include before {
+        width: 90%;
+        height: 20px;
+        left: 50%;
+        bottom: -20px;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.514);
+        border-radius: 20px 20px 0 0;
+        z-index: -1;
+        transition: 0.3s $transition_function;
+    }
+    @include after {
+        width: 80%;
+        height: 40px;
+        left: 50%;
+        bottom: -40px;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.26);
+        border-radius: 20px 20px 0 0;
+        z-index: -2;
+        transition: 0.4s $transition_function;
+        transition-delay: 0.05s;
+    }
+}
+.box_buy {
+    padding: 60px;
+    border: none;
+    @include before {
+        height: 103%;
+        width: 101%;
+        background: $color_grad;
+        border-radius: 20px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+    .btn_buy {
+        width: 100%;
+        background-color: #89bd49;
+        border-radius: 10px !important;
+    }
+    .list_buy {
+        li {
+            padding-left: 30px;
+            @include before {
+                content: url(../img/icons/check.svg);
+                height: 20px;
+                width: 20px;
+                left: 0px;
+            }
+        }
+    }
+}
+.hire_box {
+    @include before {
+        content: none;
+    }
+}
+
+.raroin_purchase {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 999;
+    .btn_purch {
+        position: relative;
+        overflow: visible;
+        .icon {
+            width: 45px;
+            height: 45px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #89bd49;
+            border-radius: 50%;
+            vertical-align: sub;
+            img {
+                width: 18px;
+            }
+            &:before {
+                content: "";
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: block;
+                position: absolute;
+                background: rgba(#89bd49, 0.1);
+                z-index: -1;
+            }
+        }
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.5, 1.5);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.sh_log {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.sh_buy {
+    position: absolute;
+    left: -2.7rem;
+    top: -3rem;
+    z-index: 9;
+    width: 7rem;
+}
+
+.relative {
+    position: relative;
+}

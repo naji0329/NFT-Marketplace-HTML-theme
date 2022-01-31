@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="1440" viewBox="0 0 1440 1440">
+  <defs>
+
+    <linearGradient id="new-paw-grad" x1="-166" y1="592" x2="1148.5" y2="931" gradientUnits="userSpaceOnUse" gradientTransform="rotate(340)">
+      <stop stop-color="#ED3984"/>
+      <stop offset="0.327193" stop-color="#DC3AD3"/>
+      <stop offset="1" stop-color="#2C65FF" stop-opacity="0"/>
+    </linearGradient>
+
+    <path id="paw" d="M595.094179,81.9058655 C607.377869,75.3755135 653.511413,59.5337963 667.010558,84.9193704 C680.509704,110.304945 641.784924,139.754681 628.610929,146.758904 C615.436935,153.76266 593.982584,153.109157 581.808838,130.216905 C569.635091,107.324185 582.810958,88.4362176 595.094179,81.9058655 Z M732.032333,331.601081 C744.316023,325.070728 790.449099,309.229011 803.948713,334.614585 C817.447858,360.00016 778.723078,389.449896 765.549084,396.454119 C752.375089,403.457875 730.92027,402.804372 718.746992,379.91212 C706.573245,357.0194 719.749112,338.131433 732.032333,331.601081 Z M718.755881,1313.68604 C638.644293,1313.68604 560.838237,1298.00992 487.485579,1267.15354 C416.700445,1237.2884 353.198224,1194.72043 298.733798,1140.49324 C244.190773,1086.18794 201.358331,1022.93568 171.440698,952.485062 C140.449365,879.529896 124.704572,802.036697 124.704572,722.248051 C124.704572,642.458937 140.449365,564.965737 171.440698,491.958647 C201.410729,421.533758 244.190773,358.25577 298.733798,304.028587 C353.224424,249.775208 416.726644,207.129109 487.485579,177.3159 C505.824095,169.647414 525.131513,165.682891 544.910517,165.682891 C604.273729,165.682891 657.637789,200.895336 680.796024,255.383545 C712.494736,329.929198 677.285797,416.291233 602.413585,447.851639 C566.863589,462.797537 534.850486,484.290161 507.316982,511.67741 C479.783478,539.143247 458.197195,570.990876 443.159781,606.385758 C427.598383,643.032915 419.765753,682.001248 419.765753,722.248051 C419.765753,762.494386 427.598383,801.462718 443.159781,838.083679 C458.197195,873.530954 479.783478,905.352386 507.316982,932.765831 C534.798088,960.179276 566.81119,981.6719 602.413585,996.670191 C639.194477,1012.13721 678.333298,1019.93621 718.755881,1019.93621 C759.204663,1019.93621 798.343484,1012.13721 835.151043,996.670191 C870.726771,981.6719 902.713674,960.179276 930.220979,932.765831 C957.702085,905.378582 979.315034,873.55715 994.378647,838.083679 C1009.93958,801.410793 1017.82507,762.46819 1017.82507,722.248051 C1017.82507,641.259522 1083.97342,575.373135 1165.31637,575.373135 C1246.63265,575.373135 1312.80719,641.259522 1312.80719,722.248051 C1312.80719,802.036697 1297.08906,879.529896 1266.04486,952.485062 C1236.1801,1022.93568 1193.34719,1086.18794 1138.83083,1140.49324 C1084.3402,1194.72043 1020.78559,1237.2884 950.052382,1267.15354 C876.699724,1298.00992 798.867468,1313.68604 718.755881,1313.68604 Z M740.865212,220.62439 C754.571612,213.337621 810.995834,193.030846 826.058979,221.356949 C841.121657,249.683053 792.964691,285.1743 778.264592,292.989672 C763.564493,300.805044 739.624492,300.075759 726.041134,274.531604 C712.457309,248.987449 727.159279,227.911627 740.865212,220.62439 Z M688.684795,127.134167 C702.391196,119.84693 757.468965,100.255874 772.53211,128.581978 C787.594788,156.908082 740.783807,191.684078 726.083708,199.498982 C711.384076,207.314354 687.444075,206.585069 673.86025,181.040913 C660.276424,155.496758 674.978395,134.420936 688.684795,127.134167 Z"/>
+
+    <radialGradient id="paint_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(579.271 1076.9) rotate(28.9422) scale(340.943 502.447)">
+      <stop stop-color="black" stop-opacity="1" />
+      <stop offset="1" stop-color="black" stop-opacity="0" />
+    </radialGradient>
+
+    <g stroke-width="3" transform="rotate(-40)" id="tile">
+      <rect x="3" y="-120" width="107" height="109" rx="20" />
+      <rect x="124" y="-175" width="347" height="164" rx="20" />
+
+      <rect x="3" y="3" width="228" height="281" rx="20"/>
+      <rect x="242" y="230" width="228" height="281" rx="20"/>
+
+      <rect x="242" y="109" width="107" height="109" rx="20" />
+      <rect x="363" y="109" width="107" height="109" rx="20" />
+      <rect x="123" y="296" width="107" height="109" rx="20" />
+      <rect x="483" y="232" width="107" height="109" rx="20" />
+      <rect x="483" y="528" width="107" height="109" rx="20" />
+      <rect x="603" y="528" width="107" height="109" rx="20" />
+
+      <rect x="482" y="353" width="347" height="164" rx="20" />
+    </g>
+
+    <g id="tile-group">
+      <use y="1079" x="219.5" xlink:href="#tile" />
+    </g>
+
+    <mask id="tile-mask">
+      <rect width="100%" height="100%" fill="white"/>
+      <use xlink:href="#tile-group" fill="white" stroke="black" />
+    </mask>
+
+    <mask id="anti-tile-mask">
+      <rect width="100%" height="100%" fill="black"/>
+      <use xlink:href="#tile-group" stroke="white" fill="black"/>
+    </mask>
+
+    <mask id="paw-mask">
+      <g>
+        <rect width="100%" height="100%" fill="white" />
+        <use xlink:href="#paw" x="0" y="0" fill="black"/>
+      </g>
+    </mask>
+
+    <clipPath id="paw-clip">
+      <use xlink:href="#paw" x="0" y="0"/>
+    </clipPath>
+
+    <linearGradient id="back-light" gradientTransform="rotate(90)">
+      <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:0" />
+      <stop offset="25%" style="stop-color:rgb(255,255,255); stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:rgb(255,255,255); stop-opacity:1" />
+      <stop offset="75%" style="stop-color:rgb(255,255,255); stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:rgb(255,255,255); stop-opacity:0" />
+    </linearGradient>
+
+    <radialGradient id="black_tile_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(559.403 198.424) rotate(68.9422) scale(381.557 562.299)">
+      <stop stop-color="black"/>
+      <stop offset="1" stop-color="black" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="white_tile_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(559.403 198.424) rotate(68.9422) scale(381.557 562.299)">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+
+  </defs>
+
+  <use fill="url(#new-paw-grad)" fill-opacity="0.1" mask="url(#anti-tile-mask)" xlink:href="#paw" />
+
+  <rect id="light-bulb" width="1400" height="300" x="-700" y="450" fill="url(#back-light)" transform="rotate(-40)"/>
+  <animateMotion href="#light-bulb" begin="1.5s" dur="8s" repeatCount="indefinite"
+                 path="m 100 100 l 700 700" />
+
+  <rect width="100%" height="100%" mask="url(#paw-mask)" fill="white"/>
+
+  <g fill="none" fill-rule="evenodd">
+    <use fill="url(#new-paw-grad)" fill-opacity="0.1" mask="url(#tile-mask)" xlink:href="#paw" />
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+.submit_requests {
+    margin-top: 100px;
+    @include md {
+        margin-top: 70px;
+    }
+    p {
+        width: auto;
+    }
+    .side_bar {
+        @include lg {
+            margin-bottom: 30px;
+        }
+        .sidebar_box {
+            padding: 20px;
+            background: $color_grad;
+            border-radius: 10px;
+            .question_icon {
+                font-size: 20px;
+            }
+            p:not(:last-child) {
+                margin: 0;
+                margin-right: 10px;
+            }
+            p:last-child {
+                margin: 0;
+            }
+            .desc_icon {
+                vertical-align: middle;
+                display: none;
+                @include sm {
+                    display: inline-block;
+                }
+            }
+            .desc_text {
+                display: inline-block;
+                @include sm {
+                    display: none;
+                }
+            }
+        }
+    }
+    .sender {
+        .message_box {
+            background-color: #e6e9ff;
+        }
+    }
+    .receiver {
+        .message_box {
+            background-color: #edf3f5;
+        }
+    }
+}

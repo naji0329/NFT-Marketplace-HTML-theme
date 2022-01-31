@@ -1,0 +1,90 @@
+.collections {
+    @include sm_screen {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .collections_item {
+        @include card_item;
+        .top_imgs {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            img {
+                width: 31%;
+                object-fit: cover;
+            }
+        }
+        .images-box {
+            border-radius: $border_radius/2;
+            overflow: hidden;
+        }
+        img {
+            width: 100%;
+            box-shadow: $shadow_1;
+            transition: all 0.35s ease-in-out;
+        }
+    }
+    .collections_footer {
+        .collection_title {
+            a {
+                color: $color_black;
+                font-size: 20px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                &:hover {
+                    color: $color_brand;
+                }
+            }
+        }
+    }
+    .creators,
+    .collections_footer,
+    .likes {
+        display: flex;
+        align-items: center;
+    }
+    .likes {
+        color: $color_black;
+        i {
+            transition: all 0.25s $transition_function;
+            color: rgb(184, 189, 209);
+
+            @include after {
+                height: 1.5rem;
+                width: 1.5rem;
+                left: 45%;
+                top: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                // background-color: rgba(255, 0, 85, 0.13);
+                border-radius: 100%;
+                transition: all 0.25s $transition_function;
+            }
+            &:hover {
+                transform: scale(1.2);
+                color: $color_red;
+                @include after {
+                    transform: translate(-50%, -50%) scale(1.5);
+                }
+            }
+        }
+    }
+    &.is__gaming {
+        .images-box{
+            border-radius: 0;
+            img {
+                border-radius: 20px;
+                width: 100%;
+            }
+            .big_img {
+                object-fit: cover;
+                width: 800%;
+                max-height: 368px;
+            }
+            .left_imgs {
+                overflow: hidden;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.typoghraphy {
+    position: relative;
+    overflow: hidden;
+    @include before {
+        content: "Aa";
+        opacity: 0.1;
+        font-size: 200px;
+        font-family: $font-primary;
+        bottom: -6rem;
+        left: -2rem;
+    }
+}

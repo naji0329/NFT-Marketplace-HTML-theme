@@ -1,0 +1,127 @@
+/*--------------------------------------------------------------
+## avatar styles
+--------------------------------------------------------------*/
+.avatars {
+    display: flex;
+    align-items: center;
+    .media {
+        position: relative;
+        .badge {
+            position: absolute;
+            bottom: 0;
+            right: -7px; 
+            img {
+                width: 100%;
+            }
+        }
+        .has_number {
+            position: absolute;
+            left: -12%;
+            top: 40%;
+            width: 22px;
+            height: 22px;
+            color: $color_white;
+            background-color: $color_black;
+            border: 2px solid $color_white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font_size_small;
+            &.top {
+                background: $color_grad;
+                left: 70%;
+                top: 4%;
+            }
+        }
+        &.has_border {
+            box-sizing: border-box;
+            padding: 4px;
+            border-radius: 100%;
+            background: $color_grad;
+        }
+    }
+    .avatars_name {
+        font-weight: 700;
+        transition: 0.3s;
+        &.large {
+            font-size: $font_size_large;
+        }
+        &:hover {
+            color: $color_brand;
+        }
+    }
+    .price {
+        font-size: $font_size_small;
+    }
+    .details {
+        display: flex;
+        justify-content: space-between;
+        background: $color_hard_light;
+        padding: 20px;
+        border-radius: $border_radius/2;
+        box-shadow: $shadow_1;
+        width: 100%;
+    }
+    .avatar {
+        width: 4.5rem;
+        height: 4.5rem;
+        box-shadow: $shadow_1;
+        border-radius: 50% !important;
+        border: 3px solid #fff;
+        object-fit: cover;
+        transition: all 0.35s $transition_function;
+        &.avatar-sm {
+            width: 2rem;
+            height: 2rem;
+        }
+        &.avatar-md {
+            width: 5rem;
+            height: 5rem;
+            @include sm {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+        &.avatar-lg {
+            width: 6rem;
+            height: 6rem;
+        }
+        &.avatar-forum {
+            width: 50px;
+            height: 50px;
+        }
+        &.avatar-chat {
+            width: 4rem;
+            height: 4rem;
+            @include sm {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+    }
+    .total__avatars {
+        position: relative;
+        color: white;
+        font-size: 10px;
+        box-shadow: $shadow_1;
+        border-radius: 50% !important;
+        border: 3px solid #fff;
+        object-fit: cover;
+        transition: all 0.35s $transition_function;
+        background: $color_brand;
+        padding: 7px 4px;
+    }
+}
+
+.avatar-group {
+    display: flex;
+    margin-left: 25px;
+
+    .avatar-item {
+        width: 3rem;
+        height: 3rem;
+        margin-left: -25px;
+        border: solid 6px white;
+    }
+}

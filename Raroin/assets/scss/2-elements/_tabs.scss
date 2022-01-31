@@ -1,0 +1,38 @@
+.nav-tabs {
+    border: none !important;
+    .nav-item {
+        a {
+            &.active{
+                background: $color_black;
+                color: $color_white;
+                border: solid 1px $color_black;
+              
+                &:hover,
+                &:focus {
+                  color: $color_white !important;
+                  background: $color_black !important;
+                  border: solid 1px $color_black;
+                }
+              
+                &.btn-sh {
+                  box-shadow: 0 14px 35px -11px $color_black;
+                }
+              
+                &.btn-outline {
+                  border: solid 2px $color_black;
+                  background: transparent !important;
+                  color: $color_black;
+                  &:hover {
+                    color: $color_brand !important;
+                  }
+                }
+              
+                &.btn-outline-bottom {
+                  border-bottom: solid 3px $color_black;
+                  background: transparent !important;
+                  color: $color_black;
+                }
+              }
+        }
+    }
+}

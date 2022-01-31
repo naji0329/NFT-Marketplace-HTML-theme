@@ -1,0 +1,866 @@
+// Helpers > _Mixins.scss                                                    | coinkit
+
+// =======================================================
+// - - - - - - - - -Media Query > mixins
+// ==========================================================
+@mixin xs {
+    @media screen and (max-width: 375px) {
+        @content;
+    }
+}
+@mixin sm {
+    @media screen and (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media screen and (min-width: 1800px) {
+        @content;
+    }
+}
+
+@mixin max-lg {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media screen and (max-width: 1400px) {
+        @content;
+    }
+}
+
+@mixin prefixer($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value !important;
+    }
+    #{$property}: $value !important;
+}
+
+// =======================================================
+//- - - - - - - - - Position Absolute > mixins
+// =======================================================
+@mixin absolute {
+    position: absolute;
+    @content;
+}
+@mixin before {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        @content;
+    }
+}
+@mixin before_center {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        @content;
+    }
+}
+@mixin after {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        @content;
+    }
+}
+
+@mixin overlay {
+    z-index: 0;
+    transition: 0.2s $transition_function;
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        background: rgba(0, 0, 0, 0.308);
+        @content;
+    }
+}
+// =======================================================
+//- - - - - - - - - Position Absolute > mixins
+// =======================================================
+
+/// Select all children from the first to `$num`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin first($num) {
+    @if $num==1 {
+        &:first-child {
+            @content;
+        }
+    } @else {
+        &:nth-child(-n + #{$num}) {
+            @content;
+        }
+    }
+}
+
+/// Select all children from the last to `$num`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin last($num) {
+    &:nth-last-child(-n + #{$num}) {
+        @content;
+    }
+}
+
+/// Select all children after the first to `$num`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin after-first($num) {
+    &:nth-child(n + #{$num + 1}) {
+        @content;
+    }
+}
+
+/// Select all children before `$num` from the last.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin from-end($num) {
+    &:nth-last-child(#{$num}) {
+        @content;
+    }
+}
+
+/// Select all children between `$first` and `$last`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin between($first, $last) {
+    &:nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+        @content;
+    }
+}
+
+/// Select all even children between `$first` and `$last`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin even-between($first, $last) {
+    &:nth-child(even):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+        @content;
+    }
+}
+
+/// Select all odd children between `$first` and `$last`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin odd-between($first, $last) {
+    &:nth-child(odd):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+        @content;
+    }
+}
+
+/// Select all `$num` children between `$first` and `$last`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin n-between($num, $first, $last) {
+    &:nth-child(#{$num}n):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+        @content;
+    }
+}
+
+/// Select all children but `$num`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin all-but($num) {
+    &:not(:nth-child(#{$num})) {
+        @content;
+    }
+}
+
+/// Select children each `$num`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+/// @alias every
+@mixin each($num) {
+    &:nth-child(#{$num}n) {
+        @content;
+    }
+}
+
+/// Select children each `$num`.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin every($num) {
+    &:nth-child(#{$num}n) {
+        @content;
+    }
+}
+
+/// Select the `$num` child from the start and the `$num` child from the last.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin from-first-last($num) {
+    &:nth-child(#{$num}),
+    &:nth-last-child(#{$num}) {
+        @content;
+    }
+}
+
+/// Select the item in the middle of `$num` child. Only works with odd number
+/// chain.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin middle($num) {
+    &:nth-child(#{round($num / 2)}) {
+        @content;
+    }
+}
+
+/// Select all children between the `$num` first and the `$num` last.
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - id of the child
+@mixin all-but-first-last($num) {
+    &:nth-child(n + #{$num}):nth-last-child(n + #{$num}) {
+        @content;
+    }
+}
+
+/// This quantity-query mixin will only select the first of `$limit` items. It will not
+/// work if there is not as much as item as you set in `$limit`.
+/// @group Quantity queries
+/// @param {number} $limit
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin first-of($limit) {
+    &:nth-last-child(#{$limit}):first-child {
+        @content;
+    }
+}
+
+/// This quantity-query mixin will only select the last of `$limit` items. It will not
+/// if there is not as much as item as you set in `$limit`.
+/// @group Quantity queries
+/// @param {number} $limit
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin last-of($limit) {
+    &:nth-of-type(#{$limit}):nth-last-of-type(1) {
+        @content;
+    }
+}
+
+/// This quantity-query mixin will select every items if there is at least `$num` items. It will not
+/// if there is not as much as item as you set in `$num`.
+/// @group Quantity queries
+/// @param {number} $limit
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin at-least($num) {
+    $selector: &;
+    $child: nth(nth($selector, -1), -1);
+
+    &:nth-last-child(n + #{$num}),
+    &:nth-last-child(n + #{$num}) ~ #{$child} {
+        @content;
+    }
+}
+
+/// This quantity-query mixin will select every items if there is at most `$num` items. It will not
+/// if there is not as much as item as you set in `$num`.
+/// @group Quantity queries
+/// @param {number} $limit
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin at-most($num) {
+    $selector: &;
+    $child: nth(nth($selector, -1), -1);
+
+    &:nth-last-child(-n + #{$num}):first-child,
+    &:nth-last-child(-n + #{$num}):first-child ~ #{$child} {
+        @content;
+    }
+}
+
+/// This quantity-query mixin will select every items only if there is between `$min` and `$max` items.
+/// @group Quantity queries
+/// @param {number} $limit
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin in-between($min, $max) {
+    $selector: &;
+    $child: nth(nth($selector, -1), -1);
+
+    &:nth-last-child(n + #{$min}):nth-last-child(-n + #{$max}):first-child,
+    &:nth-last-child(n + #{$min}):nth-last-child(-n + #{$max}):first-child ~ #{$child} {
+        @content;
+    }
+}
+
+/// Select the first exact child
+/// @group no-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin first-child() {
+    &:first-of-type {
+        @content;
+    }
+}
+
+/// Select the last exact child
+/// @group no-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin last-child() {
+    &:last-of-type {
+        @content;
+    }
+}
+
+/// Select all even children.
+/// @group no-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin even() {
+    &:nth-child(even) {
+        @content;
+    }
+}
+
+/// Select all odd children.
+/// @group no-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin odd() {
+    &:nth-child(odd) {
+        @content;
+    }
+}
+
+/// Select only the first and last child.
+/// @group no-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin first-last() {
+    &:first-child,
+    &:last-child {
+        @content;
+    }
+}
+
+/// Will only select the child if it’s unique.
+/// @group no-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @alias only
+@mixin unique() {
+    &:only-child {
+        @content;
+    }
+}
+
+/// Will only select the child if it’s unique.
+/// @group no-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin only() {
+    &:only-child {
+        @content;
+    }
+}
+
+/// Will only select children if they are not unique. Meaning if there is at
+/// least 2 children, the style is applied.
+/// @group no-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+@mixin not-unique() {
+    &:not(:only-child) {
+        @content;
+    }
+}
+
+/// This mixin is used to automatically sort z-index in numerical order. But it
+/// can also sort them in anti-numerical order, depending the parameters you use.
+/// @group using functions
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $num - Number of children
+/// @param {string} $direction [forward] - Direction of the sort
+/// @param {number} $index [0] - Index of the sorting
+@mixin child-index($num, $direction: "forward", $index: 0) {
+    @for $i from 1 through $num {
+        @if ($direction== "forward") {
+            &:nth-child(#{$i}) {
+                z-index: order-index($i, $index);
+                @content;
+            }
+        } @else if ($direction== "backward") {
+            &:nth-last-child(#{$i}) {
+                z-index: order-index($i, $index);
+                @content;
+            }
+        }
+    }
+}
+
+/// Used by the child-index mixin. It will returned the proper sorted numbers
+/// depending on the `$index` value.
+/// @access private
+/// @param {number} $num - Number of children
+/// @param {number} $index - Index of the sorting
+@function order-index($i, $index) {
+    @return ($index + $i);
+}
+
+// Flex with center alignment
+
+@mixin flex_center() {
+    display: flex;
+    align-items: center;
+}
+
+// Transition animation
+
+@mixin animate($property: all, $ease: $transition_function, $duration: 0.4s) {
+    -webkit-transition: $property $ease $duration;
+    -moz-transition: $property $ease $duration;
+    -o-transition: $property $ease $duration;
+    transition: $property $ease $duration;
+}
+
+@mixin animate_with_delay($property: all, $ease: $transition_function, $duration: 0.4s, $delay: 2s) {
+    -webkit-transition: $property $ease $duration $delay;
+    -moz-transition: $property $ease $duration $delay;
+    -o-transition: $property $ease $duration $delay;
+    transition: $property $ease $duration $delay;
+}
+
+// Divider
+
+@mixin divider() {
+    content: "•";
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.8em;
+    margin-top: -2px;
+    color: $color_brand;
+}
+
+// Divider
+
+@mixin link_reset() {
+    &:before {
+        display: none;
+    }
+}
+
+// Fade up animation
+
+@mixin fade_up() {
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    @include animate();
+}
+
+@mixin fade_up_active() {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+// Fade down animation
+
+@mixin fade_down() {
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    @include animate();
+}
+
+@mixin fade_down_active() {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+// Flip up animation
+
+@mixin flip_up() {
+    opacity: 0;
+    visibility: hidden;
+    @include animate();
+    transform-origin: 50% -50px;
+    transform: perspective(300px) rotateX(-15deg);
+}
+
+@mixin flip_up_active() {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+// Image effect on active state
+
+@mixin active_image() {
+    transform: scale(0.98);
+    @include animate();
+}
+
+@mixin btn_shadow() {
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+@mixin btn_shadow_inset() {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.04);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.04);
+}
+
+@mixin shape_shadow() {
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+}
+
+@mixin dropdown_shadow() {
+    -webkit-box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 32px -8px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+@mixin clearfix() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// Border radius
+
+@mixin border_radius($radius: 4px) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin border_top_radius($radius: 4px) {
+    -webkit-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+    -webkit-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+}
+
+@mixin border_right_radius($radius: 4px) {
+    -webkit-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    -webkit-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+@mixin border_bottom_radius($radius: 4px) {
+    -webkit-border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    -webkit-border-bottom-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+
+@mixin border_left_radius($radius: 4px) {
+    -webkit-border-bottom-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+    -webkit-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+}
+
+// Media queries breakpoints
+
+
+@mixin sm_screen {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin md_screen {
+    @media screen and (min-width: 769px) {
+        @content;
+    }
+}
+
+@mixin tablet_vert_screen {
+    @media screen and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin tablet_screen {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin lg_screen {
+    @media screen and (min-width: 1025px) {
+        @content;
+    }
+}
+
+@mixin xl_screen {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin note_screen {
+    @media screen and (min-width: 1025px) and (max-width: 1440px) {
+        @content;
+    }
+}
+
+// Fluid typography
+
+@mixin fluid-type($min-font-size: 28px, $max-font-size: 72px, $lower-range: 576px, $upper-range: 1600px) {
+    font-size: calc(
+        #{$min-font-size} + #{(
+                ($max-font-size / ($max-font-size * 0 + 1)) - ($min-font-size / ($min-font-size * 0 + 1))
+            )} * ((100vw - #{$lower-range}) / #{(
+                        ($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1))
+                    )})
+    );
+
+    @media screen and (max-width: $lower-range) {
+        font-size: $min-font-size;
+    }
+
+    @media screen and (min-width: $upper-range) {
+        font-size: $max-font-size;
+    }
+}
+
+// Spacers
+
+@mixin spacer100($property: padding) {
+    #{$property}: 100px;
+
+    @include note_screen() {
+        #{$property}: $spacer_80;
+    }
+
+    @include tablet_screen() {
+        #{$property}: $spacer_70;
+    }
+    @include sm_screen() {
+        #{$property}: $spacer_50;
+    }
+}
+
+@mixin spacer90($property: padding) {
+    #{$property}: $spacer_90;
+
+    @include note_screen() {
+        #{$property}: $spacer_80;
+    }
+
+    @include tablet_screen() {
+        #{$property}: $spacer_40;
+    }
+}
+
+@mixin spacer80($property: padding) {
+    #{$property}: $spacer_80;
+
+    @include note_screen() {
+        #{$property}: $spacer_60;
+    }
+
+    @include tablet_screen() {
+        #{$property}: $spacer_40;
+    }
+}
+
+@mixin spacer70($property: padding) {
+    #{$property}: $spacer_70;
+
+    @include note_screen() {
+        #{$property}: $spacer_60;
+    }
+
+    @include tablet_screen() {
+        #{$property}: $spacer_40;
+    }
+}
+
+@mixin spacer60($property: padding) {
+    #{$property}: $spacer_60;
+
+    @include note_screen() {
+        #{$property}: $spacer_50;
+    }
+
+    @include tablet_screen() {
+        #{$property}: $spacer_40;
+    }
+
+    @include sm_screen() {
+        #{$property}: $spacer_30;
+    }
+}
+
+@mixin spacer50($property: padding) {
+    #{$property}: $spacer_50;
+
+    @include note_screen() {
+        #{$property}: $spacer_40;
+    }
+
+    @include tablet_screen() {
+        #{$property}: $spacer_30;
+    }
+
+    @include sm_screen() {
+        #{$property}: $spacer_20;
+    }
+}
+
+@mixin spacer40($property: padding) {
+    #{$property}: $spacer_40;
+
+    @include note_screen() {
+        #{$property}: $spacer_30;
+    }
+
+    @include tablet_screen() {
+        #{$property}: $spacer_30;
+    }
+
+    @include sm_screen() {
+        #{$property}: $spacer_20;
+    }
+}
+
+@mixin spacer30($property: padding) {
+    #{$property}: $spacer_30;
+
+    @include note_screen() {
+        #{$property}: $spacer_25;
+    }
+
+    @include tablet_screen() {
+        #{$property}: $spacer_25;
+    }
+
+    @include sm_screen() {
+        #{$property}: $spacer_20;
+    }
+}
+
+@mixin spacer25($property: padding) {
+    #{$property}: $spacer_25;
+
+    @include sm_screen() {
+        #{$property}: $spacer_20;
+    }
+}
+
+@mixin spacer20($property: padding) {
+    #{$property}: $spacer_20;
+}
+
+//Crop overflow string
+
+@mixin crop_string() {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/*-----------------------------
+  media query
+-----------------------------*/
+@mixin maxMobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+@mixin maxSmall {
+    @media (max-width: 991px) {
+        @content;
+    }
+}
+@mixin minSmall {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin minMedium {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+@mixin minLarge {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+/*-----------------------------
+    mixin prefix
+  -----------------------------*/
+@mixin prefixer($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value !important;
+    }
+    #{$property}: $value !important;
+}
+
+/*-----------------------------
+    mixin animation
+  -----------------------------*/
+@mixin keyFrame($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+//   -================================================================
+
+@mixin card_item {
+    background: $color_white;
+    border: solid 1px $color_stroke;
+    padding: 20px;
+    border-radius: $border_radius;
+    box-shadow: $shadow_1;
+    @content;
+}
+@mixin hero {
+    background: $color_white;
+    padding: 100px 0;
+    border-bottom: 1px solid $color_stroke;
+    @include tablet_vert_screen {
+        padding: 50px 0;
+    }
+}
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

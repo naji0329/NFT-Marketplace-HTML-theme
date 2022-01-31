@@ -1,0 +1,96 @@
+/*--------------------------------------------------------------
+## alert styles
+--------------------------------------------------------------*/
+.alert {
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    border: 0;
+    color: $color_black;
+    button {
+        border: none;
+        box-shadow: none;
+        outline: none;
+    }
+    .alert-link {
+        padding-left: 5px;
+    }
+    > [class^="ri-"],
+    > [class*=" ri-"] {
+        margin-right: 10px;
+        font-size: 20px;
+    }
+    a {
+        color: $color_black;
+        font-weight: 500;
+        @include prefixer(transition, 0.3s, webkit moz o ms);
+        &:hover {
+            color: $color_brand;
+        }
+    }
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.75rem 1.25rem;
+        top: auto;
+        right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        opacity: 1 !important;
+        border-radius: 50%;
+        background-color: $color_white;
+        padding: 0;
+        @include prefixer(transition, 0.3s, webkit moz o ms);
+        box-shadow: none !important;
+        text-shadow: none !important;
+        i {
+            font-size: 18px;
+            color: $color_black;
+            margin-top: -1px;
+            margin-left: 5px;
+            position: relative;
+        }
+        &:hover {
+            background-color: rgba($color_black, 0.05);
+        }
+    }
+    &.alert-warning {
+        background-color: rgba($yollow-color, 0.15);
+    }
+    &.alert-primary {
+        background-color: rgba($color_brand, 0.15);
+        [class^="ri-"],
+        [class*=" ri-"] {
+            color: $color_brand;
+        }
+    }
+    &.alert-secondary {
+        background-color: rgba($color_brand, 0.15);
+        color: $color_brand;
+    }
+    &.alert-success {
+        background-color: rgba($green2-color, 0.15);
+        color: $green2-color;
+    }
+    &.alert-danger {
+        background-color: rgba($color_red, 0.15);
+        color: $color_red;
+    }
+    &.alert-info {
+        background-color: rgba($sky-color, 0.15);
+        color: $sky-color;
+    }
+    &.alert-light {
+        background-color: rgba($color_white, 0.15);
+        color: $color_white;
+    }
+    &.alert-dark {
+        background-color: rgba($color_black, 0.15);
+        color: $color_black;
+    }
+}

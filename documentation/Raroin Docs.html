@@ -1,0 +1,778 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Raroin Documentation</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="39dad590-fce1-4d55-a937-808bcf9a81d3" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Raroin%20Documentation%2039dad590fce14d55a937808bcf9a81d3/raroin_icon.svg"/></div><h1 class="page-title">Raroin Documentation</h1></header><div class="page-body"><div id="06aa6ae1-2935-4c0b-a009-bb60a4095962" class="column-list"><div id="476b6dcd-a0bc-48a9-b5db-224b26ef1842" style="width:18.75%" class="column"><nav id="7034451c-fbe9-4873-a821-dd9a167fe34f" class="table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2d8d8898-f17a-490b-8bca-23b16cbe1dab">Installation:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#106414dd-5e8c-4d21-bca9-86d6866fb0cd">Prerequisites :</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#2770964d-9029-4612-86ec-46cad3704116">Template structure:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#8d669e8d-dd62-4be6-b652-3544a7dd8928">Global structure:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a14de88d-0ce1-4722-8e58-d199378f960e">Images:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d0f9c8b2-7a10-4f3e-86df-284f6e71a5ad">HTML Structure:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d6e15ffa-957b-4eb3-88da-5347fb3cc584">Js:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0b607198-39ec-4f37-89a5-8755a4c7cf48">Scss:</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a528490f-e715-4f9b-8475-1d61e32739af">Customization:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#caaf0281-6d11-44ea-98ed-1ca8831e29f6">Change Main colors:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#844e3415-97d9-467d-9b58-a74ae050dcda">Change Logo:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d27b16dc-08a0-4c53-b142-c2e1942acae9"> Change Images:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#81bee3fe-8241-4423-8ada-f8bc7f136779">Changing Fonts:</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#64e7c6f7-6c06-45ba-9a35-1432618df03d">Customer Support:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d3dbb76e-c4db-43a9-8e17-917c10326f22">Support includes:</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#b2962422-4fd8-410c-b293-9cd6a7c38798">Support doesn&#x27;t include :</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a645b087-2353-4c2b-aeb2-c003a4072564">Before Support:</a></div></nav></div><div id="3714d535-1b64-403e-9051-2f58f4a6bf74" style="width:81.25%" class="column"><p id="e7466a09-407f-41ff-8c97-4aeecd197ec2" class="">First of all, Thank you so much for purchasing this template and for being our loyal customer. You are awesome! You are entitled to get free lifetime updates to this product and support from the <strong>Creabik team</strong> directly.</p><p id="4682e350-8331-4ae6-8c4e-4796e5afdc50" class="">‌</p><p id="7b9112b2-d4d5-4301-a5ae-7f1d4f07aaec" class="">This documentation has been written to help you regarding each step of setup and customization. Please go through the documentation carefully to understand how this template is made and how to edit this properly. HTML CSS, Sass, and  JS  knowledge are required to customize this template.</p><h1 id="2d8d8898-f17a-490b-8bca-23b16cbe1dab" class="block-color-red_background">Installation:</h1><p id="509955fa-d5ed-4e17-b026-854ca6b7f889" class="">Follow the steps below to setup your site template:</p><p id="570b750a-0e8f-4f0d-b105-d9bc6307c19b" class="">
+</p><h3 id="106414dd-5e8c-4d21-bca9-86d6866fb0cd" class="">Prerequisites :</h3><hr id="d84061d5-77b3-4927-8a92-07a8c4b41ece"/><p id="ff6b4e55-813c-4e1c-8bcf-e323ea9c352b" class="">You will need the following tools to customize Addkit template.</p><ol type="1" id="a1a3fecc-d4f5-4718-b05f-af11ea310aba" class="numbered-list" start="1"><li>A good code editor of your choice</li></ol><ol type="1" id="184cc9d9-c6e2-42d9-93d4-134215f6317d" class="numbered-list" start="2"><li>A supported web browser</li></ol><ol type="1" id="f474e701-a077-4020-8355-abe42f1dafbb" class="numbered-list" start="3"><li><code>node.js</code> and <code>npm</code> installed on your machine</li></ol><ol type="1" id="3a1e52c5-aa54-414e-a99d-ad61fe6d4822" class="numbered-list" start="4"><li>Intermediate <code>html</code> knowledge</li></ol><ol type="1" id="fae3952f-818a-42f4-b3c1-a40098d671ac" class="numbered-list" start="5"><li>Intermediate <code>scss</code> knowledge</li></ol><ol type="1" id="87a6e787-40db-4215-9e17-1ca01ed77131" class="numbered-list" start="6"><li>Intermediate <code>javascript</code> knowledge</li></ol><blockquote id="4314837f-cccf-40c0-8265-f70dead36411" class="block-color-gray_background"><strong>WARNING</strong>
+Be careful before you start working with the template and read the documentation. If not edited properly, layouts may break completely. No support is provided for faulty customization.</blockquote><h1 id="2770964d-9029-4612-86ec-46cad3704116" class="block-color-red_background">Template structure:</h1><p id="e102cca3-d366-4424-809b-43943a27ce2e" class="">This section is about the Bulkit File structure. Learning more about it will help setup the template quickly and easily.</p><h3 id="8d669e8d-dd62-4be6-b652-3544a7dd8928" class="">Global structure:</h3><hr id="ec573f0a-9e27-4ace-8a09-45104db10955"/><p id="77cec0d7-dc0e-4f20-8c25-f56d653c4755" class="">Once you have downloaded the zip file from Themeforest, unzip it using your standard zip software. When it has finished you should have a folder with the following files &amp; directories inside.</p><pre id="4e328906-02b4-4ce4-8ad8-22c42447914f" class="code"><code>📂 Raroin template
+| -- 📂 assets
+| --- |---- 📂 css
+| --- |---- 📂 fonts
+| --- |---- 📂 images
+| --- |---- 📂 js
+| -- Activity.html
+| -- Collections.html
+| -- Connect-wallet.html
+| -- Creators.html
+| -- Home2.html
+| -- Home3.html
+| -- kit.html
+| -- Marketplace.html
+| -- Profile.html
+| -- Upload-type.html
+| -- Profile.html
+| -- Upload.html
+| -- index.html</code></pre><h3 id="a14de88d-0ce1-4722-8e58-d199378f960e" class="">Images:</h3><hr id="16f26eba-21ab-4ffa-9c17-aeb8d88861b6"/><p id="0ae0ab80-72b3-433e-9539-42e83fa9f137" class="">All the project images live in this folder. It can have as many subfolders as you want. When you build the projects, all these images are automatically transfered to the right location by Gulp. We will see that a bit later.</p><pre id="50cb69d9-1b1a-487c-959b-35c7b50e4cdd" class="code"><code>| -- 📂 assets
+| --- |---- 📂 images
+| --- |----| --- avatars
+| --- |----| --- bg
+| --- |----| --- icons
+| --- |----| --- items
+| --- |----| --- logos
+| --- |----| --- notifications
+| --- |----| --- effects</code></pre><h3 id="d0f9c8b2-7a10-4f3e-86df-284f6e71a5ad" class="">HTML Structure:</h3><hr id="13047183-8e82-4446-a0a8-038b74d5153a"/><p id="1391e2b2-9981-456f-ad1e-e291c0c90130" class="">This template using Bootstrap 5 Framework which is a free CSS framework based on Flexbox. And the HTML structure is very simple and easy to customize. Here is the sample for your reference:</p><pre id="a0095336-ac95-47b9-ab45-c6f0d1d6c879" class="code"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;UTF-8&quot; /&gt;
+		&lt;meta name=&quot;title&quot; content=&quot;Raroin&quot; /&gt;
+		&lt;meta
+			name=&quot;description&quot;
+			content=&quot;Premium Multipurpose Bootstrap 5 template&quot; /&gt;
+		&lt;meta
+			name=&quot;keywords&quot;
+			content=&quot;bootstrap, creabik, ThemeForest, bootstrap5, agency theme, saas
+			theme, sass, html5&quot; /&gt;
+		&lt;meta name=&quot;robots&quot; content=&quot;index, follow&quot; /&gt;
+		&lt;meta name=&quot;language&quot; content=&quot;English&quot; /&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+		&lt;title&gt; {{page title}} &lt;/title&gt;
+		&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#da532c&quot; /&gt;
+		&lt;meta name=&quot;theme-color&quot; content=&quot;#ffffff&quot; /&gt;
+		&lt;!-- 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈 STYLES --&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;{{root}}assets/css/remixicon.css&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;{{root}}assets/css/bootstrap.min.css&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;{{root}}assets/css/swiper-bundle.min.css&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;{{root}}assets/css/prism-tomorrow.css&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;{{root}}assets/css/modal-video.min.css&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;{{root}}assets/css/style.css&quot; /&gt;
+	&lt;/head&gt;
+	&lt;body id=&quot;body&quot; class=&quot;bg_light&quot;&gt;
+
+		{{-------- your content here ---------}}
+
+		&lt;!-- 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈 SCRIPTS --&gt;
+		&lt;script src=&quot;{{root}}assets/js/Plugins.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;{{root}}assets/js/lottie.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;{{root}}assets/js/jquery.hover3d.min.js&quot;&gt;&lt;/script&gt;
+		&lt;script src=&quot;../assets/js/jquery-modal-video.min.js&quot;&gt;&lt;/script&gt;
+		&lt;!-- &lt;script src=&quot;{{root}}assets/js/script.js&quot;&gt;&lt;/script&gt; --&gt;
+		&lt;script src=&quot;{{root}}assets/js/script.js&quot;&gt;&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre><h3 id="d6e15ffa-957b-4eb3-88da-5347fb3cc584" class="">Js:</h3><hr id="b691316b-4b81-48f0-af57-4e489b09af69"/><p id="45160afe-6f26-43a1-a621-f82d44e1db31" class="">All of Raroin own javascript files live in this folder. Edit them to change the template functionality.</p><pre id="0ba578f4-2901-4f7f-8bdd-4f024a67f683" class="code"><code>| -- 📂 assets
+| --- |---- 📂 Js
+| --- |----| --- script.js
+| --- |----| --- Plugins.js (can&#x27;t edit)</code></pre><h3 id="0b607198-39ec-4f37-89a5-8755a4c7cf48" class="">Scss:</h3><hr id="db6236c1-b71f-4c47-aa17-39a1a62c4343"/><p id="30e34839-07de-42f8-8083-e5ef8cf4e516" class="">Raroin relies on the powerful Sass features, letting you handle complex styles in a breeze. Raroin relies on a modular scss structure. You need to import all the SCSS partials into your core file. This how scss files are organized.</p><pre id="4c79a4c2-094d-4092-a7a4-7d2146e38c22" class="code"><code>// style.scss
+// 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈 Helpers
+@import &quot;1-helpers/colors&quot;;
+@import &quot;1-helpers/mixins&quot;;
+@import &quot;1-helpers/variables&quot;;
+@import &quot;1-helpers/global&quot;;
+@import &quot;1-helpers/classes&quot;;
+@import &quot;1-helpers/spacing&quot;;
+@import &quot;1-helpers/margin&quot;;
+@import &quot;1-helpers/padding&quot;;
+
+// 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈 Base
+@import &quot;0-base/base&quot;;
+@import &quot;0-base/typography&quot;;
+
+// 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈 elements
+
+@import &quot;2-elements/buttons&quot;;
+@import &quot;2-elements/forms&quot;;
+@import &quot;2-elements/dropdowns&quot;;
+@import &quot;2-elements/menus&quot;;
+@import &quot;2-elements/avatars&quot;;
+@import &quot;2-elements/popups&quot;;
+@import &quot;2-elements/card_items&quot;;
+@import &quot;2-elements/creators_items&quot;;
+@import &quot;2-elements/collections_items&quot;;
+@import &quot;2-elements/menus&quot;;
+
+// 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈 Layouts
+@import &quot;3-Layouts/header&quot;;
+@import &quot;3-Layouts/hero&quot;;
+@import &quot;3-Layouts/footer&quot;;
+@import &quot;3-Layouts/sections&quot;;
+
+// 🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈 Pages
+// ===================================
+@import &quot;4-Pages/elements_page&quot;;</code></pre><p id="a0407626-bd28-423d-82ab-7753d44d4373" class="">
+</p><h1 id="a528490f-e715-4f9b-8475-1d61e32739af" class="block-color-red_background">Customization:</h1><p id="9779c19f-d2aa-44cf-8a2d-d61f9e96728b" class="">Raroin is built in a scss modular approach. We&#x27;ve made it easy for you to customize theme colors.</p><p id="496bc20d-0e6d-4c33-a0b3-00f0d143ff0a" class="">fist  make  sure youare running sass compiler before making this  edits you can  use vscode compiler or gulp sass compiler</p><h3 id="caaf0281-6d11-44ea-98ed-1ca8831e29f6" class="">Change Main colors:</h3><hr id="bc92d8a0-dfd5-4277-9929-67fe7b9b499c"/><p id="7088d18e-f0f0-4543-9094-eaa09b414a60" class="">you can easly change your pages main colors you need just go to <code>scss/1-helpers/colors.scss</code> and change your primary, and layouts colors</p><pre id="c86c82d7-e7c4-45a5-b093-4b9757228563" class="code"><code>// === Template colors
+
+$color_stroke: #edf3f5;
+$color_brand: #566ffe;
+$color_brand_light: rgba(86, 111, 254, 0.15);
+$color_grad: radial-gradient(100% 100% at 53.13% 0%, #31e7fa 0%, #4477ff 52.6%, #db74ff 100%);
+
+$color_text: #91a1bc;
+$color_input: #f2f7fa;
+$color_light: #f9fbfc;
+$color_hard_light: #e6edf0;
+$color_white: #ffffff;
+$color_black: #183b56;
+
+$color_green: #36b37e;
+$color_info: #13c1e0;
+$color_red: #e95432;</code></pre><h3 id="844e3415-97d9-467d-9b58-a74ae050dcda" class="">Change Logo:</h3><hr id="9917a92b-bccf-4f5d-8a3c-78d4b061ac24"/><p id="a5b60ab0-79f9-4881-9bf7-6fd903c1d4c7" class="">The logo image can be found inside header container, so just upload you site logo image inside  &gt; <code>assets &gt; images &gt; Logos &gt; logo.svg</code></p><pre id="b7ffb42e-aaf5-4cf9-ae6f-9b29b06bdef5" class="code"><code>&lt;!-- ====== you can find it header section --&gt;
+&lt;div class=&quot;header__logo&quot;&gt;
+	&lt;a href=&quot;/&quot;&gt;
+		&lt;img class=&quot;header__logo&quot; src=&quot;assets/img/logos/Logo.svg&quot;
+			alt=&quot;logo&quot; /&gt;
+	&lt;/a&gt;
+&lt;/div&gt;</code></pre><h3 id="d27b16dc-08a0-4c53-b142-c2e1942acae9" class=""> Change Images:</h3><hr id="4f77cf99-8e14-4a37-8aaa-0207cdb58646"/><p id="65978534-a183-421b-af4d-612bfe632354" class="">this template downloaded package does not contain images which are there in our online demo. We are using placeholder images instead of real images. You will see the image code as mentioned below. You can replace placeholder image url with your image url like <code>/assets/images/Image_URL.png</code></p><h3 id="81bee3fe-8241-4423-8ada-f8bc7f136779" class="">Changing Fonts:</h3><hr id="2cfccda0-b927-455d-9f17-fbaf3df8e013"/><p id="ed91d067-4e06-49d0-89db-5450ada0d5ee" class="">In order to use google fonts, you need to visit</p><p id="7e272029-9110-40a1-a0e2-6ab564c57cc8" class=""><a href="https://fonts.google.com/">Google Fonts Library</a></p><p id="c3f5e411-929b-4364-912c-4367ceb3715c" class="">and follow the instructions on how to get a new font. After you have decided on the styles of the font that you want to load, or download it in<code> ./assets/fonts/</code></p><p id="0e4dc621-b26e-4d55-9210-0c6df67bf56f" class="">after you need to add the name you font in<code>./assets/scss/bases/bases.scss</code> like this :</p><pre id="8b4cfb60-c812-4a75-9840-8feadd94ff46" class="code"><code>/*--------------------------------------------------------------
+## Include Fonts
+--------------------------------------------------------------*/
+@font-face {
+    font-family: &quot;circular&quot;;
+    src: url(&quot;../fonts/circular.ttf&quot;) format(&quot;truetype&quot;);
+}
+@font-face {
+    font-family: &quot;circular_bold&quot;;
+    src: url(&quot;../fonts/Circular-Bold.ttf&quot;) format(&quot;truetype&quot;);
+    font-weight: normal;
+}</code></pre><p id="d5abe902-2e33-49b8-bd7d-bda59685dce3" class="">then Go to<code> ./assets/scss/1-helpers/_variables.scss</code> and edit this file with your new font like that:</p><pre id="92107c6f-7ee3-426b-bcac-ca62c9308749" class="code"><code>//variables.scss
+$font-primary:&quot;circular&quot;;
+$font-secondary:&quot;circular_bold&quot;;</code></pre><h1 id="64e7c6f7-6c06-45ba-9a35-1432618df03d" class="block-color-red_background">Customer Support:</h1><p id="c36d2c6a-5d10-4917-93bc-44d0102a438d" class="">Please remember you have purchased a very affordable theme and you did not pay for a full-time web design agency. We will help with your issues, but these requests will be put on a relevant priority, regarding their nature. Support is provided for your comfort and for a best possible experience, so please be patient, polite and respectful, as we are towards you.</p><h3 id="d3dbb76e-c4db-43a9-8e17-917c10326f22" class="">Support includes:</h3><hr id="ffd4f41e-196c-4056-be7a-ec48d052c868"/><ul id="5ffc745c-a659-4f55-b5b4-09ce1bceef92" class="bulleted-list"><li>Responding to questions or problems regarding the item and its features</li></ul><ul id="5f63c474-1908-4e8f-a806-216c684c3214" class="bulleted-list"><li>Fixing bugs and reported issues</li></ul><ul id="a9cc7f68-06b6-4ee8-a62e-702d212248c0" class="bulleted-list"><li>Providing updates</li></ul><h3 id="b2962422-4fd8-410c-b293-9cd6a7c38798" class="">Support doesn&#x27;t include :</h3><hr id="f384b481-a685-4ad5-99a8-61307c53e68b"/><ul id="1c927dca-357b-4c3a-8076-71acea529eb8" class="bulleted-list"><li>Customization and installation services</li></ul><ul id="dd9f5212-ae37-4343-b73e-8c184b697a78" class="bulleted-list"><li>Support for third party software and plugins</li></ul><h3 id="a645b087-2353-4c2b-aeb2-c003a4072564" class="">Before Support:</h3><hr id="e24f0932-6391-4c48-a4ba-0f0785aa4f6c"/><ul id="e34bf7a1-ea2e-490d-922d-7aa650db51c6" class="bulleted-list"><li>Make sure your question is a valid Theme Issue and not a customization request</li></ul><ul id="90055262-8e3e-4acd-a2cb-f4a65cccdea7" class="bulleted-list"><li>Make sure you have read through the documentation and any ressources before asking support on how to accomplish a task</li></ul><ul id="19386ee3-474e-4195-b9b0-c7dc9b783f2f" class="bulleted-list"><li>If you have customized your theme and now have an issue, back-track to make sure you didn&#x27;t make a mistake. If you have made changes and can&#x27;t find the issue, please provide us with your changelog.</li></ul><ul id="7898f828-f19c-42ad-b764-4d203f319ae0" class="bulleted-list"><li>Almost 80% of the time we find that the solution to people&#x27;s issues can be solved with a simple &quot;Google Search&quot;. You might want to try that before seeking support. You might be able to fix the issue yourself much quicker than we can respond to your request.</li></ul><ul id="c0ea75f3-70df-45c1-8b83-05f0e93d6b18" class="bulleted-list"><li>Make sure to state the name of the theme you are having issues with when requesting support.</li></ul></div></div><p id="cd69128c-4584-49a2-81e9-1153058e723c" class="">
+</p></div></article></body></html>

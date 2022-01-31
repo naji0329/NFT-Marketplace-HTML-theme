@@ -1,0 +1,52 @@
+.not__found {
+    position: relative;
+    .wrap {
+        display: flex;
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            img {
+                max-width: 20rem;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+    
+        }
+        .img__left {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            left: 0;
+            @include md {
+                display: none;
+            }
+            img {
+                height: 100%;
+                @include lg {
+                    height: 80%;
+                }
+            }
+        }
+        .img__right {
+            display: flex;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            right: 0;
+            @include md {
+                display: none;
+            }
+            img {
+                height: 100%;
+                margin-left: auto;
+                @include lg {
+                    height: 80%;
+                }
+            }
+        }
+    }
+}

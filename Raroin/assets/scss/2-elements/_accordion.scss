@@ -1,0 +1,60 @@
+/*--------------------------------------------------------------
+## accordion styles
+--------------------------------------------------------------*/
+.accordion {
+    background-color: white;
+    border: solid 1px $color_stroke;
+    border-radius: 10px;
+    outline: none !important;
+    overflow: hidden;
+
+    .accordion-desc {
+        color: $color_text;
+        border: none;
+        border-top: solid 1px $color_stroke;
+        padding: 25px 0 0 0;
+        margin-top: 25px;
+    }
+    .accordion-header {
+        padding: 25px;
+        margin-bottom: 0;
+        border: none;
+    }
+    .accordion-button {
+        color: transparent;
+        padding: 0;
+        border: none;
+        &::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z' fill='rgba(16,44,65,1)'/%3E%3C/svg%3E");
+
+        }
+        &:not(.collapsed) {
+            background-color: transparent;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    i {
+        color: $color_dark;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        padding: 4px;
+        position: relative;
+    }
+
+    &.has_style1 {
+        border: double 2px transparent;
+        border-radius: 10px;
+        background-image: linear-gradient(white, white), $color_grad;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        .accordion-button {
+            &::after {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 10.828l-4.95 4.95-1.414-1.414L12 8l6.364 6.364-1.414 1.414z' fill='rgba(86,111,254,1)'/%3E%3C/svg%3E"); 
+            }
+        }
+    }
+}
+

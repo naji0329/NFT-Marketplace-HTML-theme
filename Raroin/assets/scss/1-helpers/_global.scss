@@ -1,0 +1,68 @@
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  //smoothing-Font
+  @include prefixer(font-smoothing, antialiased, webkit moz o ms);
+  font: {
+    family: "SoraStd", sans-serif;
+    size: 16px;
+  }
+  color: $color_black;
+  @include prefixer(transition, 0.3s ease-in-out, webkit moz o ms);
+  &.modal-open {
+    padding-right: 0 !important;
+    overflow: auto;
+  }
+}
+
+#wrapper,
+#content {
+  width: 100%;
+  height: 100%;
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p,
+// span,
+// button {
+//   @include prefixer(transition, 0.3s, webkit moz o ms);
+// }
+
+/*-----------------------------
+  button, input , a , btn
+-----------------------------*/
+button,
+input {
+  @include prefixer(outline, 0, webkit moz o ms);
+}
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.btn,
+.btn.focus,
+.btn:active,
+.btn.active,
+.btn:focus {
+  @include prefixer(box-shadow, none, webkit moz o ms);
+  border: 0;
+}
+img {
+  @include prefixer(user-select, none, webkit moz o ms);
+}
+
+/*-----------------------------
+  Selection
+-----------------------------*/
+::selection {
+  background-color: $color_brand;
+  color: $color_white;
+}

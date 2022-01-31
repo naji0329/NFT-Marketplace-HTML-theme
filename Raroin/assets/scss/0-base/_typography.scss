@@ -1,0 +1,71 @@
+.heading {
+	margin-bottom: 30px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-family: $font_titles !important;
+	font-weight: bold;
+	text-align: inherit;
+	position: relative;
+	color: $color_black;
+	letter-spacing: -0.01em;
+}
+a {
+	color: $color_brand;
+	&:hover {
+		color: $color_brand;
+	}
+}
+
+h1 {
+	@include fluid-type($font_size_h1_mobile, $font_size_h1);
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	@include sm_screen() {
+		line-height: 1.15 !important;
+	}
+}
+
+h2 {
+	@include fluid-type($font_size_h2_mobile, $font_size_h2);
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+}
+
+h3 {
+	@include fluid-type($font_size_h3_mobile, $font_size_h3);
+	line-height: 1.1;
+}
+
+h4 {
+	@include fluid-type($font_size_h4_mobile, $font_size_h4);
+	line-height: 1.35;
+}
+
+h5 {
+	@include fluid-type($font_size_h5_mobile, $font_size_h5);
+	line-height: 1.5;
+}
+
+h6 {
+	@include fluid-type($font_size_h6_mobile, $font_size_h6);
+	line-height: 1.5;
+	letter-spacing: 0;
+}
+
+/*--------------------------------------------------------------
+## Typography
+--------------------------------------------------------------*/
+
+p {
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	color: $color_text;
+	line-height: 1.6;
+}

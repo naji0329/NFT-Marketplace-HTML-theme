@@ -1,0 +1,318 @@
+.mode_switcher {
+    display: flex;
+    a {
+        color: $color_white;
+        background: rgba(255, 255, 255, 0.123);
+        border-radius: 50px;
+        padding: 3px 10px;
+        &.is_active {
+            background: $color_brand;
+        }
+        i {
+            margin-right: 5px;
+        }
+    }
+}
+.is__dark {
+    .hero_marketplace,
+    .hero__1,
+    .hero__profile,
+    .hero__collections,
+    .hero__activity,
+    .hero__kit,
+    .bg_white,
+    .accordion,
+    .hero__profile .infos {
+        background: $color_black !important;
+        border-color: #ffffff1f;
+    }
+    .hero__index::before {
+        background: transparent !important;
+    }
+
+    .hero__3,
+    .hero_no_results,
+    .hero_privacy,
+    .hero_Live_Auctions {
+        background: $color_dark !important;
+    }
+    .menu_activity li {
+        background-color: #e2eef114;
+    }
+    .header__1 {
+        background: $color_black !important;
+        border-bottom: solid 1px #e2eef11f;
+    }
+    .border-b {
+        border-color: #ffffff1f;
+    }
+    .hero__2 {
+        background-color: $color_dark;
+        &::before {
+            content: none;
+        }
+    }
+    background: $color_dark;
+    *:not(p):not(.btn),
+    .collection_title a,
+    div {
+        color: $color_white;
+    }
+    * {
+        box-shadow: none !important;
+    }
+    .collection_title a {
+        color: $color_white !important;
+    }
+
+    label,
+    .btn-dark,
+    .header__1 .header__mobile {
+        background: #305571;
+    }
+    .color_green {
+        color: $color_green !important;
+    }
+    p,
+    span {
+        color: #a5afc1;
+    }
+    .box.is__live,
+    .call2action {
+        background: #091620 !important;
+        border: none;
+    }
+    .section__title,
+    .avatars_name,
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        color: $color_white;
+    }
+    .avatar {
+        border: none;
+    }
+    .hero__profile .avatar_wrap .avatar {
+        border: solid 5px $color_dark;
+    }
+    .creator_card,
+    .card__item,
+    .swiper-button-prev,
+    .swiper-button-next,
+    .collections_item,
+    .logos__wrap,
+    .footer__1,
+    .card__item .likes,
+    .community__items .item,
+    .hero__2 .wrapper,
+    .box,
+    .has_number,
+    .header__result,
+    .search,
+    .fixed_row,
+    .choose_collection .icon,
+    .upcoming_projects tr.white td,
+    .upcoming_projects .calendar_icon,
+    .card__item.six .card_body .card_footer .details {
+        background-color: $color_black !important;
+        border: none;
+    }
+    .nav-tabs .nav-item a.active,
+    .box .btn-white,
+    .tags,
+    .light_bg {
+        background: $color_dark !important;
+    }
+    .hr,
+    .hr2,
+    .footer__1 .footer__social i,
+    .bg-white,
+    .header__avatar,
+    .header__search,
+    .details,
+    .card__item.six,
+    .card__item.six .card_body .card_footer {
+        background-color: $color_dark !important;
+        border: none;
+    }
+    .v__line {
+        @include before {
+            background-color: $color_dark !important;
+        }
+    }
+    .dislike {
+        i {
+            color: $color-grey-icon !important;
+        }
+    }
+    td {
+        background-color: $color_dark !important;
+    }
+    .btn-white,
+    .tags,
+    .light_bg {
+        color: white;
+        background: $color_black;
+    }
+    .bg-white,
+    .call2action.is__light {
+        background: #08131b !important;
+    }
+    .community .community__items .item .logo {
+        background: #edf3f52b;
+    }
+    .footer__1 .footer__list li a {
+        color: #a5afc1;
+    }
+    .card__item.one .card_head .details {
+        background: #0d1013;
+    }
+    .block_timer .item {
+        background: $color_black;
+        color: white;
+    }
+    .has_number {
+        border-color: $color_black !important;
+        background: $color_grad;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea,
+    .custom-select,
+    .choose_collection {
+        background-color: $color_dark !important;
+        border: none !important;
+    }
+    .number span {
+        color: white !important;
+    }
+    .avatars .total__avatars {
+        border-color: $color_black !important;
+    }
+
+    .menu__popup,
+    .menu__popup2,
+    .share_box,
+    .more_box,
+    .notifications_popup,
+    .more .icon,
+    .share .icon,
+    .hero__profile .copy,
+    .item_details .likes,
+    .share .share_box,
+    .share .dropdown__popup,
+    .more .dropdown__popup {
+        background: #142c3f !important;
+        border: none !important;
+
+        a {
+            color: #fff !important;
+        }
+    }
+    .notifications_popup .details {
+        background: transparent !important;
+    }
+    .modal-content {
+        background: $color_black;
+        border: none !important;
+        .close {
+            background: #345a77;
+            border: none !important;
+        }
+    }
+    .btn-white,
+    .tags,
+    .light_bg {
+        border: solid 1px #345a77;
+        &:hover {
+            border: solid 1px #345a77;
+            background: #345a77;
+        }
+    }
+    .card__item .view_history:hover {
+        color: white !important;
+    }
+    .post__details {
+        .forum__title {
+            &:hover {
+                color: white !important;
+            }
+        }
+    }
+    .form_cc_four {
+        background: $color_black;
+    }
+    .search .result {
+        background: $color_black;
+    }
+    .effect {
+        background-image: none;
+    }
+    .box {
+        border: none;
+        &:hover {
+            border: none;
+        }
+    }
+    .questions__page .container-md .side .sidenav ul li .text__reset,
+    i {
+        color: $color_light;
+    }
+    .submit_requests {
+        .sidebar_box {
+            background-color: #182633 !important;
+        }
+        .sender {
+            .message_box {
+                background-color: #0e1621 !important;
+                p {
+                    color: white !important;
+                }
+            }
+        }
+        .receiver {
+            .message_box {
+                background-color: #182633 !important;
+                p {
+                    color: white !important;
+                }
+            }
+        }
+    }
+    .table {
+        span {
+            &.color_red {
+                color: $color_red;
+            }
+            &.color_info {
+                color: $color_info;
+            }
+            &.color_green {
+                color: $color_green;
+            }
+        }
+    }
+    .card__item.six .card_body .card_head {
+        background: transparent !important;
+    }
+    .demo_item,
+    .box_buy_wrapper,
+    .box_buy_wrapper2 {
+        background: $color_black;
+        &::before {
+            background: #193c5880;
+        }
+        &::after {
+            background: #193c582a;
+        }
+    }
+    .change_log {
+        background: $color_dark !important;
+    }
+    .overflow_log::before {
+        background: linear-gradient(transparent, #0b1b2773, #0b1b27d6, #0b1b27);
+    }
+}

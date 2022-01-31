@@ -1,0 +1,63 @@
+.upcoming_projects {
+    margin-bottom: 0 !important;
+    border-spacing: 0 2px;
+    border-collapse:separate; 
+    border-spacing: 0;
+    .calendar_icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        i {
+            font-size: 24px;
+            background: $color_grad;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+        }
+    }
+    th {
+        padding:10px 40px 20px 40px;
+        i {
+            color: $color_black;
+            vertical-align: middle;
+            font-weight: normal;
+            font-size: 17.5px;
+        }
+        span {
+            color: $color_black;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+    }
+    tr {
+
+        background: transparent;
+        td {
+            vertical-align: middle;
+            padding: 30px 40px;
+            background: #eef0ff;
+            white-space: nowrap;
+        }
+        &.white {
+            td {
+                background: white;
+            }
+        }
+    }
+    .table * {
+        border: none !important;
+    
+    }
+    
+    table tbody  td:first-child {
+        border-radius: 10px 0 0 10px;
+      }
+      
+      table tbody  td:last-child {
+        border-radius: 0 10px 10px 0;
+      }
+  }

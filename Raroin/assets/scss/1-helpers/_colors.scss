@@ -1,0 +1,86 @@
+// === Template colors
+
+$color_stroke: #e2eef1;
+$color_brand: #566ffe;
+
+$color_dark: #0b1b27;
+
+$color_brand_light: rgba(86, 111, 254, 0.15);
+$color_grad: radial-gradient(100% 100% at 53.13% 0%, #31e7fa 0%, #4477ff 52.6%, #db74ff 100%);
+
+$color_text: #6f7d95;
+$color_input: #f2f7fa;
+$color_light: #f9fbfc;
+$color_body: #ecf1f9;
+$color_hard_light: #e6edf0;
+$color_white: #ffffff;
+$color_black: #183b56;
+$color_green: #36b37e;
+$color_info: #1384e0;
+$color_red: #eb5757;
+$color-grey: #edf3f5;
+$color-grey-icon: #91a1bc;
+
+$color_yellow: #d7e932;
+$color_brand2: green;
+
+// === end
+
+$maxMobile: "(max-width:767px)";
+$maxSmall: "(max-width:991px)";
+$minSmall: "(min-width:768px)";
+$minMedium: "(min-width:992px)";
+$minLarge: "(min-width:1200px)";
+
+.is_color {
+    $color_brand: $color_brand2;
+}
+
+// === Ui Kit
+
+.color {
+    .color_box {
+        margin-bottom: 20px;
+        .color_palette {
+            border-radius: 10px;
+            height: 100px;
+            &.Brand {
+                background-color: $color_brand;
+            }
+            &.Gradient {
+                background: $color_grad;
+            }
+            &.Black {
+                background-color: $color_black;
+            }
+            &.White {
+                background-color: $color_white;
+            }
+            &.Light {
+                background-color: $color_light;
+            }
+            &.Hard_light {
+                background-color: $color_hard_light;
+            }
+
+            &.Brand_light {
+                background-color: $color_brand_light;
+            }
+            &.Red {
+                background-color: $color_red;
+            }
+            &.Green {
+                background: $color_green;
+            }
+            &.Info {
+                background-color: $color_info;
+            }
+            &.Stroke {
+                background-color: $color_stroke;
+            }
+            &.Text {
+                background-color: $color_text;
+            }
+        }
+    }
+}

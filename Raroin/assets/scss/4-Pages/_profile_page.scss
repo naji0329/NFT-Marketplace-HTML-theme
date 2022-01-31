@@ -1,0 +1,84 @@
+.profile__content {
+    @include md {
+        margin-bottom: 70px;
+    }
+}
+.edit_profile {
+    .profile-img {
+        .pro_img {
+            cursor: pointer;
+            transition: all 0.25s $transition_function;
+            &:hover {
+                opacity: 0.8;
+                transform: scale(0.9);
+            }
+            &.is_active {
+                position: relative;
+                border-radius: 12px;
+                box-shadow: $shadow_1;
+                @include before {
+                    height: 30px;
+                    width: 30px;
+                    background: url(../img/icons/Badge.svg);
+                    right: -15px;
+                    top: -15px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
+                @include after {
+                    height: calc(100% + 10px);
+                    width: calc(100% + 12px);
+                    background: radial-gradient(100% 100% at 53.13% 0%, #31e7fa 0%, #4477ff 52.6%, #db74ff 100%);
+                    border-radius: 12px;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: -1;
+                }
+            }
+        }
+
+        @include tablet_vert_screen {
+            .pro_img {
+                margin-bottom: 20px;
+            }
+        }
+        img {
+            border-radius: 10px;
+            width: 100%;
+        }
+        .box {
+            img {
+                border-radius: 0 !important;
+            }
+        }
+    }
+    .account-info,
+    .social-media {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+#boxUpload {
+    position: relative;
+    #imageUpload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        cursor: pointer;
+        opacity: 0;
+    }
+}
+
+#profileImage {
+    cursor: pointer;
+    position: relative;
+}

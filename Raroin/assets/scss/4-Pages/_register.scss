@@ -1,0 +1,25 @@
+.register {
+    background-image: url(../img/bg/log.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    .left_part {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: inherit;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+    }
+    .right_part {
+        padding: 60px 0;
+    }
+}
+
+.login {
+    height: calc(100vh - 70px - 89px);
+    @include tablet_vert_screen {
+        height: auto;
+    }
+}

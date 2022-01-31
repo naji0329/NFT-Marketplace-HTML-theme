@@ -1,0 +1,164 @@
+/*--------------------------------------------------------------
+## Include Fonts
+--------------------------------------------------------------*/
+@font-face {
+    font-family: "circular";
+    src: url("../fonts/CircularStd-Regular.woff") format("woff"),
+        url("../fonts/CircularStd-Regular.woff2") format("woff2"), url("../fonts/CircularStd-Regular.svg") format("svg"),
+        url("../fonts/circular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "circular_bold";
+    src: url("../fonts/CircularStd-Bold.svg") format("svg"), url("../fonts/CircularStd-Bold.woff") format("woff"),
+        url("../fonts/CircularStd-Bold.woff2") format("woff2"), url("../fonts/Circular-Bold.ttf") format("truetype");
+    font-weight: normal;
+}
+/*--------------------------------------------------------------
+## Base
+--------------------------------------------------------------*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-secondary, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 17px;
+    letter-spacing: 0.3px;
+    color: $color_black;
+    background: $color_body;
+
+    @include md {
+        font-size: 15.5px;
+    }
+
+    &.is__dark {
+        background: $color_dark;
+    }
+}
+@media (min-width: 1400px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 1400px;
+    }
+}
+.container {
+    @include md {
+        max-width: 800px !important;
+    }
+    @include xl {
+        max-width: 1200px;
+    }
+}
+.index_page {
+    @media only screen and (min-width: 1510px) {
+        .container {
+            max-width: 1400px;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: $font_titles;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+section:focus {
+    outline: none !important;
+}
+
+a {
+    transition: 0.25s $transition_function;
+    text-decoration: none !important;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    font-family: $font-secondary;
+    color: #6f7583;
+}
+
+/*--------------------------------------------------------------
+## swiper reset
+--------------------------------------------------------------*/
+.swiper-pagination-bullet {
+    margin-top: 20px;
+    width: 12px !important;
+    height: 12px !important ;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: 0px !important;
+}
+.swiper-pagination-bullet-active {
+    background: $color_brand !important ;
+}
+
+/*--------------------------------------------------------------
+## prismjs reset
+--------------------------------------------------------------*/
+
+.code-toolbar {
+    position: relative;
+    .toolbar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    button {
+        background: $color_brand;
+        padding: 5px 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.sm_dropdown {
+    &.show {
+        height: 180px !important;
+    }
+}
+.single-drop {
+    &.show {
+        height: 300px !important;
+        .drop_dark {
+            display: block;
+            padding: 20px 15px !important;
+        }
+        .pl-10 {
+            padding-left: 0 !important;
+        }
+    }
+}
+
+.effect {
+    background-image: url(../img/bg/effect.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}

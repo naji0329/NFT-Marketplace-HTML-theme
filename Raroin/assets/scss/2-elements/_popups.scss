@@ -1,0 +1,27 @@
+.popup {
+    .modal-content {
+        border: solid 1px $color_stroke;
+        border-radius: $border_radius !important;
+        box-shadow: $shadow_1;
+    }
+    .close {
+        position: absolute;
+        right: -15px;
+        top: -15px;
+        box-shadow: $shadow_1;
+        outline: none;
+        border: solid 1px $color_stroke;
+        background-color: $color_white;
+        transition: all 0.25s $transition_function;
+        z-index: 2;
+        &:hover {
+            background-color: $color_black;
+            border: solid 1px $color_black;
+        }
+    }
+}
+#popup_preview {
+    .modal-content {
+        max-width: 20rem;
+    }
+}

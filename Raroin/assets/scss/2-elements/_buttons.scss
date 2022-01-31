@@ -1,0 +1,667 @@
+/*--------------------------------------------------------------
+## btn styles
+--------------------------------------------------------------*/
+
+input[type="submit"],
+.btn,
+a.btn input.btn,
+a.button,
+span.button,
+div.button {
+  color: rgb(255, 255, 255);
+  padding: 11px 23px;
+  min-height: 20px;
+  line-height: 20px;
+  @include border_radius();
+  @include animate();
+  font-weight: normal;
+  text-decoration: none;
+  vertical-align: middle;
+  outline: none;
+  position: relative;
+  text-align: center;
+  border-radius: 100px !important;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+  &:not(.btn-outline):not(.btn-flat):not(.btn-link) {
+    .text {
+      color: #fff;
+    }
+  }
+
+  i {
+    vertical-align: middle;
+    margin-top: -16px !important;
+    position: relative;
+    top: -1px;
+    font-size: 20px;
+    position: relative;
+    stroke: 2px;
+    min-width: 20px;
+    height: 20px;
+    &-left {
+      margin-right: 5px;
+    }
+
+    &-right {
+      margin-left: 5px;
+    }
+    &.sm {
+      font-size: 12px;
+    }
+    &.md {
+      font-size: 16px;
+    }
+    &.lg {
+      font-size: 18px;
+    }
+  }
+
+  &:not(.text-hover) {
+    &:hover {
+      .icon {
+        &.icon-right {
+          &:before,
+          svg {
+            animation: hoverBtn ease-out 0.3s;
+          }
+        }
+
+        &.icon-left {
+          &:before,
+          svg {
+            animation: hoverBtn ease-out 0.3s reverse;
+          }
+        }
+
+        &:before {
+          color: inherit;
+        }
+      }
+    }
+
+    @keyframes hoverBtn {
+      0% {
+        transform: translateX(0px);
+      }
+
+      51% {
+        transform: translateX(20px);
+        opacity: 1;
+      }
+
+      52% {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      53% {
+        opacity: 0;
+      }
+
+      54% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(0px);
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: $color_brand;
+    border-color: $color_brand;
+    opacity: 0.9;
+    outline: none;
+    box-shadow: inherit;
+    opacity: 0.9;
+  }
+
+  &.text-hover {
+    overflow: hidden;
+    position: relative;
+
+    .icon,
+    .text {
+      @include animate();
+    }
+
+    .icon {
+      max-width: 100%;
+      text-align: center;
+      height: 26px;
+      position: absolute;
+      top: calc(50% - 10px);
+      font-size: 20px;
+      left: 50%;
+      top: 50%;
+      margin: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    .text {
+      display: inline-block;
+      transform: translateY(-120%);
+      opacity: 0;
+    }
+
+    &:hover {
+      .icon {
+        transform: translate(-50%, 120%);
+        opacity: 0;
+      }
+
+      .text {
+        transform: none;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+p a.btn {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button[disabled],
+input[type="submit"][disabled] {
+  &.btn-white {
+    &:hover {
+      background-color: #fff;
+      color: $color_black;
+    }
+  }
+
+  &.btn-primary {
+    &:hover {
+      background-color: $color_brand;
+      color: #fff;
+    }
+  }
+}
+/*--------------------------------------------------------------
+### Buttons: outline
+--------------------------------------------------------------*/
+
+.btn-outline,
+input[type="submit"].btn-outline,
+a.btn-outline {
+  background-color: transparent;
+  color: currentColor;
+
+  &:after,
+  &:before {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $color_brand;
+    color: #fff;
+  }
+
+  &.btn-white {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: $color_black;
+    }
+  }
+
+  &.disabled:hover {
+    background-color: transparent;
+    color: $color_black;
+    border-color: $color_black;
+    cursor: default;
+  }
+}
+
+/*--------------------------------------------------------------
+### Buttons: loading spinner
+--------------------------------------------------------------*/
+
+.btn-loading {
+  box-shadow: none;
+
+  &:before {
+    content: "";
+    position: relative;
+    display: inline-block !important;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+    bottom: auto;
+    left: auto;
+    opacity: 1;
+    @include border_radius(50%);
+    border: 2px solid transparent;
+    border-top: 2px solid rgba(#fff, 0.7);
+    border-right: 2px solid rgba(#fff, 0.7);
+    background: transparent;
+    animation: 0.8s rotate cubic-bezier(0.99, 0.71, 0.22, 0.68) infinite;
+  }
+
+  &.btn-outline,
+  &.btn {
+    &:before {
+      margin-right: 8px;
+    }
+  }
+}
+
+.btn-loading {
+  &:before {
+    vertical-align: top;
+    margin-top: 1px;
+  }
+
+  .ion-left {
+    display: none;
+  }
+
+  &:hover {
+    transition: none;
+
+    &:before {
+      background: transparent;
+      width: 18px;
+      transition: none;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+/* =====================================================
+- - - - - - - - - 1/ Button sizes
+======================================================*/
+
+.btn-sm {
+  padding: 6px 16px;
+  border-radius: 28px;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  width: fit-content;
+  &.dropdown-toggle::after {
+    top: 2px;
+    position: relative;
+  }
+}
+
+.btn-lg {
+  padding: 7px 25px;
+  font-size: 19px;
+  line-height: 1.7;
+}
+.btn_card {
+  padding: 8px 16px;
+}
+
+/* ==================================================+===
+- - - - - - - - - 2/ Button variations
+=======================================================*/
+.btn-primary {
+  color: $color_white;
+  border: none !important ;
+  transition: all 0.4s ease-in-out !important;
+  background: $color_brand !important;
+  position: relative;
+
+  @include before {
+    height: 0;
+    width: 0;
+    border-radius: 100%;
+    background: $color_black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: all 0.3s $transition_function;
+    opacity: 0.3;
+  }
+
+  &:hover {
+    color: $color_white;
+    @include before {
+      height: 15rem;
+      width: 15rem;
+    }
+  }
+}
+.btn-grad {
+  color: $color_white;
+  border: none !important ;
+  transition: all 0.4s ease-in-out !important;
+  background: $color_grad;
+
+  &:hover {
+    outline: none;
+    background: $color_grad;
+    border: solid 2px $color_brand;
+  }
+}
+.btn-green {
+  color: $color_white;
+  border: none !important ;
+  transition: all 0.4s ease-in-out !important;
+  background: $color_green;
+  &:hover {
+    background: $color_green !important;
+    opacity: 0.8;
+  }
+}
+.btn-orange {
+  background: #e95432;
+  color: white;
+  border: solid 2px $color_brand;
+  transition: 0.4s ease-in-out;
+  border: none;
+  &:hover {
+    color: #fff;
+    background-color: #e95432;
+    border-color: #e95432;
+    opacity: 0.9;
+  }
+}
+
+.btn-white {
+  background: white;
+  border: solid 1px rgba(10, 33, 65, 0.05);
+  color: $color_black;
+  box-shadow: 0px 2px 4px #7e8eb11f !important;
+  &:focus,
+  &:active {
+    opacity: 0.9;
+    background: white !important;
+    border: solid 1px rgba(10, 33, 65, 0.05);
+    color: $color_black;
+    box-shadow: 0px 2px 4px #7e8eb11f !important;
+  }
+  &.dropdown-toggle {
+    &:focus,
+    &:active {
+      opacity: 0.8;
+      background: white !important;
+      color: $color_brand !important;
+      box-shadow: 0 9px 6px rgba(0, 0, 0, 0.1), 0 -50px 0 rgba(0, 0, 0, 0) inset;
+      border: solid 1px rgba(10, 33, 65, 0.05) !important;
+    }
+  }
+
+  span::after {
+    color: $color_black !important;
+  }
+
+  &.btn-outline {
+    color: white;
+    border: solid 2px white;
+  }
+  &:hover {
+    opacity: 0.8;
+    background: white !important;
+    color: $color_brand !important;
+    box-shadow: 0 9px 6px rgba(0, 0, 0, 0.1), 0 -50px 0 rgba(0, 0, 0, 0) inset;
+    border: solid 1px rgba(10, 33, 65, 0.05) !important;
+  }
+}
+.btn-light {
+  background: $color-grey;
+  border: solid 1px transparent;
+  color: $color_black;
+  box-shadow: 0px 2px 4px #7e8eb11f !important;
+  &:focus,
+  &:active {
+    opacity: 0.9;
+    background: $color-grey !important;
+    border: solid 1px transparent;
+    color: $color_black;
+    box-shadow: 0px 2px 4px #7e8eb11f !important;
+  }
+  &.dropdown-toggle {
+    &:focus,
+    &:active {
+      opacity: 0.8;
+      background: $color-grey;
+      color: $color_brand !important;
+      box-shadow: 0 9px 6px rgba(0, 0, 0, 0.1), 0 -50px 0 rgba(0, 0, 0, 0) inset;
+      border: solid 1px transparent;
+    }
+  }
+
+  span::after {
+    color: $color_black !important;
+  }
+
+  &.btn-outline {
+    color: white;
+    border: solid 2px white;
+  }
+  &:hover {
+    opacity: 0.8;
+    background: $color-grey;
+    color: $color_brand !important;
+    box-shadow: 0 9px 6px rgba(0, 0, 0, 0.1), 0 -50px 0 rgba(0, 0, 0, 0) inset;
+    border: solid 1px transparent !important;
+  }
+}
+
+.btn-dark {
+  background: $color_black;
+  color: $color_white;
+  border: solid 1px $color_black;
+
+  &:hover,
+  &:focus {
+    color: $color_white !important;
+    background: $color_black !important;
+    border: solid 1px $color_black;
+  }
+
+  &.btn-sh {
+    box-shadow: 0 14px 35px -11px $color_black;
+  }
+
+  &.btn-outline {
+    border: solid 2px $color_black;
+    background: transparent !important;
+    color: $color_black;
+    &:hover {
+      color: $color_brand !important;
+    }
+  }
+
+  &.btn-outline-bottom {
+    border-bottom: solid 3px $color_black;
+    background: transparent !important;
+    color: $color_black;
+  }
+}
+
+/* ==================================================+===
+- - - - - - - - - 3 / outher button
+=======================================================*/
+
+.facebook-btn {
+  background-color: #4267b2;
+  &:hover {
+    background-color: #4267b2;
+  }
+}
+.twitter-btn {
+  background-color: #1da1f2;
+  &:hover {
+    background-color: #1da1f2;
+  }
+}
+.discord-btn {
+  background-color: #5865f2;
+  &:hover {
+    background-color: #5865f2;
+  }
+}
+.telegram-btn {
+  background-color: #0088cc;
+  &:hover {
+    background-color: #0088cc;
+  }
+}
+.tiktok-btn {
+  background-color: #f01d54;
+  &:hover {
+    background-color: #f01d54;
+  }
+}
+.instagram-btn {
+  background: radial-gradient(
+      circle farthest-corner at 0% 150%,
+      rgb(255, 225, 125) 0%,
+      rgb(255, 205, 105) 12%,
+      rgb(250, 145, 55) 25%,
+      rgb(235, 65, 65) 41%,
+      transparent 95%
+    ),
+    linear-gradient(-15deg, rgb(35, 75, 215) -10%, rgb(195, 60, 190) 65%);
+  &:hover {
+    background: radial-gradient(
+        circle farthest-corner at 0% 150%,
+        rgb(255, 225, 125) 0%,
+        rgb(255, 205, 105) 12%,
+        rgb(250, 145, 55) 25%,
+        rgb(235, 65, 65) 41%,
+        transparent 95%
+      ),
+      linear-gradient(-15deg, rgb(35, 75, 215) -10%, rgb(195, 60, 190) 65%);
+  }
+}
+.youtube-btn {
+  background-color: #ff0000;
+  &:hover {
+    background-color: #ff0000;
+  }
+}
+.medium-btn {
+  background-color: #66cdaa;
+  &:hover {
+    background-color: #66cdaa;
+  }
+}
+
+button.close {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    height: 20px;
+    width: 40px;
+    // background-image: url(../images/others/deco_plus.svg);
+    background-size: contain;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+  &:hover {
+    color: white;
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+/*=== Small Button ====
+==================*/
+.btn_sm_primary {
+  padding: 0.7rem 1.55rem;
+  font-size: 15px;
+  text-align: center;
+  @include prefixer(transition, 0.3s, webkit moz o ms);
+  &:hover {
+    opacity: 0.9;
+  }
+}
+/*=== Medium Button ====
+==================*/
+.btn_md_primary {
+  padding: 0.85rem 1.8rem;
+  font-size: 15px;
+  text-align: center;
+  @include prefixer(transition, 0.3s, webkit moz o ms);
+  &:hover {
+    opacity: 0.9;
+  }
+}
+/*=== Large Button ====
+==================*/
+.btn_lg_primary {
+  padding: 0.9rem 2.3rem;
+  font-size: 15px;
+  text-align: center;
+  @include prefixer(transition, 0.3s, webkit moz o ms);
+  &:hover {
+    opacity: 0.9;
+  }
+}
+/*=== XLarge Button ====
+==================*/
+.btn_xl_primary {
+  padding: 1.1rem 2.3rem;
+  font-size: 15px;
+  text-align: center;
+  @include prefixer(transition, 0.3s, webkit moz o ms);
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/*=== UI kit ====
+==================*/
+.buttons {
+  span {
+    display: block;
+  }
+}
+
+.btn_auction {
+  padding: 10px 16px;
+}
+
+.buttons_item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  flex: 2;
+}
+.btn_create {
+  @include tablet_vert_screen {
+    width: 100%;
+  }
+}
+.others_btn {
+  @include tablet_vert_screen {
+    width: 47.5%;
+  }
+}

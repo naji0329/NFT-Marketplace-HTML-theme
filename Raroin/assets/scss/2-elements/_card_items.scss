@@ -1,0 +1,528 @@
+.edit_box {
+    padding: 40px !important;
+    @include tablet_vert_screen {
+        padding: 20px !important;
+    }
+}
+
+.box {
+    @include card_item;
+    display: block;
+
+    &.is__live {
+        background: #d4e3ea;
+    }
+    &.is__big {
+        padding: 30px !important;
+        @include tablet_vert_screen {
+            padding: 20px !important;
+        }
+    }
+
+    .social_profile {
+        a {
+            color: $color_black;
+            display: flex;
+            align-items: center;
+
+            i {
+                font-size: 20px;
+                height: 2rem;
+                width: 2rem;
+                margin-right: 4px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                transition: all 0.25s ease-in-out;
+                border: 1px solid transparent;
+            }
+            .ri-messenger-line {
+                color: #006aff;
+                background: #006aff3a;
+            }
+            .ri-whatsapp-line {
+                color: #25d366;
+                background: #25d36538;
+            }
+            .ri-youtube-line {
+                color: #ff0000;
+                background: #ff000027;
+            }
+            .ri-facebook-line {
+                color: #4267b2;
+                background: #4267b22a;
+            }
+        }
+    }
+    &.in__upload {
+        padding: 40px;
+
+        @include sm {
+            padding: 15px;
+            margin-bottom: 160px;
+        }
+        .left__part {
+            border: 1px dashed #b7c5db;
+            border-radius: $border_radius;
+            text-align: center;
+            padding: 40px;
+            height: 100%;
+            @include tablet_vert_screen {
+                height: auto;
+                padding: 20px;
+            }
+        }
+    }
+    &.in__profile {
+        position: relative;
+        border: 1px dashed #b7c5db;
+        border-radius: $border_radius;
+        text-align: center;
+        height: 100%;
+        transition: all 0.2s $transition_function;
+        @include tablet_vert_screen {
+            height: 74px;
+            padding: 20px;
+        }
+        .icon {
+            max-width: 60px;
+            transition: all 0.3s $transition_function;
+            cursor: pointer;
+            @include tablet_vert_screen {
+                max-width: 30px;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        input[type="file"] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            cursor: pointer;
+            filter: alpha(opacity=0);
+            opacity: 0;
+        }
+        &:hover {
+            background-color: $color_light;
+        }
+    }
+    &.in__wallet {
+        text-align: center;
+        margin-bottom: 20px;
+        transition: all 0.25s $transition_function;
+        transform: translateY(0);
+        &:hover {
+            transform: translateY(-0.8rem);
+            border: 1px solid rgba(86, 111, 254, 0.26);
+        }
+    }
+}
+
+.card__item {
+    @include card_item;
+    margin: auto;
+    margin-bottom: 30px;
+    max-width: 30rem;
+    overflow: hidden;
+    transition: all 0.4s $transition_function;
+    &.has_style2 {
+        background: transparent;
+        padding: 0;
+        overflow: visible;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .view_history {
+        transition: all 0.2s $transition_function;
+        &:hover {
+            color: $color_black;
+        }
+    }
+    &.is_gaming {
+        margin-top: 25px;
+        .avatar {
+            margin-top: -60px;
+            height: 60px;
+            width: 60px;
+        }
+        overflow: visible !important;
+
+        .creators {
+            overflow: visible !important;
+        }
+    }
+    &.in__popup {
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+    &.is__hero {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        margin-bottom: 0px;
+        @include tablet_vert_screen {
+            margin-bottom: 30px;
+        }
+    }
+    .card_title {
+        a {
+            font-size: 20px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+            display: block ruby;
+        }
+    }
+    .card_head {
+        border-radius: $border_radius;
+        background-color: $color_body;
+        height: 22rem;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.35s $transition_function;
+        }
+    }
+    &:hover {
+        transform: translateY(-5px);
+        .card_head {
+            img {
+                transform: scale(1.05);
+            }
+        }
+    }
+    .card_footer {
+        .ri-history-line {
+            font-size: 20px;
+        }
+    }
+
+    .creators,
+    .card_footer,
+    .bid,
+    .likes {
+        display: flex;
+        align-items: center;
+    }
+    // ------------ Card one
+    &.one, &.six {
+        .card_head {
+            max-height: 300px;
+            .details {
+                position: absolute;
+                background: rgba(255, 255, 255, 0.93);
+                padding: 10px 18px;
+                z-index: 1;
+                bottom: 14px;
+                left: 14px;
+                right: 14px;
+                border-radius: $border_radius/2;
+                .icon {
+                    img {
+                        width: 2rem;
+                    }
+                }
+                .fire-icon {
+                    position: absolute;
+                    top: -16px;
+                    left: 46%;
+                    width: 30px;
+                    height: 30px;
+                    background: $color_red;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    color: $color_white;
+                    border: 2px solid $color_white;
+                }
+            }
+        }
+        .creators,
+        .card_footer,
+        .bid,
+        .likes {
+            display: flex;
+            align-items: center;
+        }
+        .likes {
+            color: $color_black;
+            i {
+                transition: all 0.25s $transition_function;
+                color: rgb(184, 189, 209);
+
+                @include after {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    left: 45%;
+                    top: 50%;
+                    transform: translate(-50%, -50%) scale(0);
+                    // background-color: rgba(255, 0, 85, 0.13);
+                    border-radius: 100%;
+                    transition: all 0.25s $transition_function;
+                }
+                &:hover {
+                    transform: scale(1.2);
+                    color: $color_red;
+                    @include after {
+                        transform: translate(-50%, -50%) scale(1.5);
+                    }
+                }
+            }
+        }
+    }
+    // ------------ Card two
+    &.two {
+        .card_head {
+            max-height: 300px;
+            border-radius: $border_radius;
+            background-color: $color_body;
+            height: 22rem;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .block_timer {
+                position: absolute;
+                z-index: 1;
+                top: 14px;
+                left: 14px;
+                .item {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(255, 255, 255, 0.966);
+                    width: 33px;
+                    height: 33px;
+                    border-radius: $border_radius;
+                    .number {
+                        color: $color_black;
+                    }
+                }
+                .dots {
+                    color: $color_white;
+                    padding: 0 5px;
+                    height: auto !important;
+                    margin-top: 0;
+                }
+            }
+            .progress {
+                position: absolute;
+                z-index: 1;
+                bottom: 14px;
+                left: 14px;
+                right: 14px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: $border_radius;
+                .progress-bar {
+                    height: 50%;
+                    align-self: center;
+                    margin-left: 5px;
+                    color: #fff;
+                    background: $color_grad;
+                    border-radius: $border_radius;
+                }
+            }
+        }
+    }
+    // ------------ Card three and four
+    &.three,
+    &.four {
+        .creators {
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        .card_head {
+            max-height: 300px;
+            position: relative;
+            .action {
+                position: absolute;
+                width: 100%;
+                padding: 0 14px;
+                z-index: 1;
+                bottom: 14px;
+                display: flex;
+                justify-content: center;
+                .btn {
+                    width: 100%;
+                }
+            }
+            .likes {
+                position: absolute;
+                background: rgba(255, 255, 255, 0.966);
+                padding: 3px 12px;
+                border-radius: $border_radius;
+                box-shadow: $shadow_1;
+                z-index: 1;
+                top: 14px;
+                right: 14px;
+                color: $color_black;
+                i {
+                    transition: all 0.25s $transition_function;
+                    color: #ff6871;
+                    font-weight: bold;
+
+                    @include after {
+                        height: 1.5rem;
+                        width: 1.5rem;
+                        left: 45%;
+                        top: 50%;
+                        transform: translate(-50%, -50%) scale(0);
+                        // background-color: rgba(255, 0, 85, 0.13);
+                        border-radius: 100%;
+                        transition: all 0.25s $transition_function;
+                    }
+                    &:hover {
+                        transform: scale(1.2);
+                        color: $color_red;
+                        @include after {
+                            transform: translate(-50%, -50%) scale(1.5);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // ------------ Card five
+    &.five {
+        .card_head {
+            max-height: 300px;
+            border-radius: $border_radius;
+            background-color: $color_body;
+            height: auto;
+            width: 80%;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .progress {
+                position: absolute;
+                z-index: 1;
+                bottom: 14px;
+                left: 14px;
+                right: 14px;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: $border_radius;
+                .progress-bar {
+                    height: 50%;
+                    align-self: center;
+                    margin-left: 5px;
+                    color: #fff;
+                    background: $color_grad;
+                    border-radius: $border_radius;
+                }
+            }
+        }
+    }
+    // ------------ Card six
+    &.six {
+        max-width: 400px;
+        margin: 0 auto;
+        .card_body {
+            .card_head {
+                max-width: none;
+                max-height: none;
+                height: auto;
+            }
+            .card_footer {
+                position: relative;
+                .details {
+                    width: 90%;
+                    background: white;
+                    padding: 10px 18px;
+                    z-index: 1;
+                    margin-top: -50px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    border-radius: $border_radius/2;
+                    .card_title {
+                        font-size: 19px;
+                        @include sm {
+                            font-size: 17px;
+                        }
+                    }
+                    .card_wrap {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: -10px;
+                        flex-wrap: wrap;
+                        .bid, .auction_end{
+                            margin-right: 20px;
+                        }
+                        .bid, .auction_end, .bid_btn {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
+                        .auction_end {
+                            .counter  {
+                                color: $color_red;
+                            }
+                        }
+                        .bid_btn {
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.item_details {
+    .item_img {
+        border-radius: $border-radius;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .likes {
+        background: $color_white;
+        padding: 7px 14px;
+        border-radius: 20px;
+        box-shadow: $shadow_1;
+        color: $color_black;
+        display: flex;
+        i {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #ff6871;
+            font-weight: 700;
+            position: relative;
+            margin-right: 5px;
+        }
+    }
+}
+
+// Cards
+.card_home4 {
+    .icon-shadow {
+        border-radius: 100%;
+        box-shadow: 0px 10px 11px rgba(25, 44, 75, 0.13);
+        max-width: 48px;
+    }
+}

@@ -1,0 +1,106 @@
+.footer__1 {
+  padding: 100px 0 50px;
+  margin-top: 100px;
+  border-top: 1px solid $color_stroke;
+  background-color: $color_white;
+  @include tablet_vert_screen {
+    padding: 70px 0 30px;
+    margin-top: 70px;
+  }
+  .footer_logo {
+    img {
+      height: 3rem;
+    }
+  }
+  .footer__text {
+    max-width: 30rem;
+    margin-left: 0;
+  }
+  .footer__social {
+    display: flex;
+    a,
+    i {
+      color: $color_black;
+      font-size: 1.2rem;
+    }
+    i {
+      height: 2.5rem;
+      width: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      background: $color_stroke;
+      transition: all 0.25s ease-in-out;
+      border: solid 1px transparent;
+      &:hover {
+        background: $color_white;
+        box-shadow: $shadow_1;
+        border: solid 1px $color_stroke;
+      }
+    }
+  }
+
+  .footer-desc {
+    margin-bottom: 2rem;
+
+    .logo {
+      margin-bottom: 1rem;
+
+      img {
+        height: 2.5rem;
+      }
+    }
+
+    .social-footer {
+      margin-top: 1rem;
+
+      a {
+        img {
+          width: 18px;
+          margin-right: 8px;
+        }
+        ion-icon {
+          font-size: 25px;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .footer__title {
+    font-size: 1.1rem;
+    position: relative;
+    margin-bottom: 1.3rem;
+  }
+
+  .footer__list {
+    margin-bottom: 2rem;
+
+    li {
+      margin-bottom: 1rem;
+
+      a {
+        color: $color_black;
+        &:hover {
+          padding-left: 0.5rem;
+          color: $color_brand;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 35px;
+    font-size: 14px;
+
+    margin-bottom: 0;
+
+    p {
+      padding: 2rem 0 2rem;
+      font-size: 1rem;
+      margin: 0;
+      color: rgb(165, 165, 165);
+    }
+  }
+}

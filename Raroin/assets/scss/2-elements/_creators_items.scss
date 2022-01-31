@@ -1,0 +1,35 @@
+.creator_card {
+    background: $color_white;
+    border: solid 1px $color_stroke;
+    border-radius: $border_radius;
+    box-shadow: $shadow_1;
+    max-width: 30rem;
+    &.is_big {
+        padding: 30px 20px !important;
+    }
+    &.rounded_border {
+        border-radius: $border_radius_1;
+    }
+}
+.creator_item {
+    @include md_screen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 30rem;
+
+    .cover {
+        width: 100%;
+        background: $color_black;
+        height: 100px;
+        border-radius: 10px 10px 0 0;
+        margin-bottom: -50px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+}
